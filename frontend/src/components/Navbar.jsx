@@ -121,7 +121,7 @@ function Navbar() {
                     </Typography>
                     <Box paddingX={"2%"} sx={{
                         flexGrow: 1,
-                        display: { md: "flex", sm: "none" },
+                        display: { md: "flex", sm: "none", xs: 'none' },
                         justifyContent: 'space-between'
                     }}>
                         <Box display={'flex'}>
