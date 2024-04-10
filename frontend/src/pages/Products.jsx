@@ -17,7 +17,7 @@ const Products = () => {
 
   return (
     <Box width={"100%"} display={'flex'} alignItems={'center'} justifyContent={'center'} >
-      <Grid padding={"2%"} container justifyContent={'center'} alignItems={'center'} spacing={2}>
+      <Grid padding={"2%"} container spacing={2}>
         {products.map((prod, key) => (
           <Grid item key={key} xs={6} sm={4} md={4} lg={2}>
             <ProdCard prod={prod} />

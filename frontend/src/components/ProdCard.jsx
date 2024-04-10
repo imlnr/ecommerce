@@ -23,7 +23,8 @@ export default function ProdCard({ prod }) {
                 display: "flex",
                 justifyContent: 'center',
                 flexDirection: 'column',
-                height: "380px",
+                height: "420px",
+                // paddingY:"5px",
                 transition: 'transform 0.3s ease',
             }}
         >
@@ -34,15 +35,17 @@ export default function ProdCard({ prod }) {
                 <Typography gutterBottom variant="paragraph" component="div">
                     {prod.title}
                 </Typography>
-                <Typography variant='paragraph' sx={{ textAlign: 'center' }}>{prod.price} Rupees</Typography>
+                <Typography variant='h6'>$ {prod.price}</Typography>
                 {/* <Typography variant="body2" color="text.secondary"> */}
                 {/* ranging across all continents except Antarctica */}
                 {/* {prod.description} */}
                 {/* </Typography> */}
                 <br />
                 <Rating
-                    name="simple-controlled"
+                sx={{margin:"-10px"}}
+                    name="read-only"
                     value={prod.rating.rate}
+                    readOnly
                 />
             </CardContent>
             <CardActions>
