@@ -12,4 +12,4 @@ export const GET_PRODUCTS_FAILURE = "GET_PRODUCTS_FAILURE"
 
 
 
-export const url = 'http://localhost:4500'
+export const url = 'https://ecommerce-eb1o.onrender.com'
