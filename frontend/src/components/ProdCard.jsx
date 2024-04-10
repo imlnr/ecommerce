@@ -42,7 +42,6 @@ export default function ProdCard({ prod }) {
                 {/* </Typography> */}
                 <br />
                 <Rating
-                sx={{margin:"-10px"}}
                     name="read-only"
                     value={prod.rating.rate}
                     readOnly
