@@ -21,14 +21,14 @@ function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <BrowserRouter>
         <Provider store={store}>
-          <BrowserRouter>
+          <ThemeProvider theme={theme}>
             <Navbar />
-            <MainRoutes/>
-          </BrowserRouter>
+            <MainRoutes />
+          </ThemeProvider>
         </Provider>
-      </ThemeProvider>
+      </BrowserRouter>
     </>
   )
 }
