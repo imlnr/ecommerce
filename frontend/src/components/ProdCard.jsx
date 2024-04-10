@@ -11,21 +11,21 @@ import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 
 export default function ProdCard({ prod }) {
-    const [isHovered, setIsHovered] = useState(false);
+    // const [isHovered, setIsHovered] = useState(false);
     const [isclick, setisclick] = useState(false);
 
     return (
         <Card
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            // onMouseEnter={() => setIsHovered(true)}
+            // onMouseLeave={() => setIsHovered(false)}
             sx={{
-                transform: isHovered ? 'translateY(-10px)' : 'none',
+                // transform: isHovered ? 'translateY(-10px)' : 'none',
                 display: "flex",
                 justifyContent: 'center',
                 flexDirection: 'column',
                 height: "420px",
                 // paddingY:"5px",
-                transition: 'transform 0.3s ease',
+                // transition: 'transform 0.3s ease',
             }}
         >
             <CardMedia sx={{ display: "flex", justifyContent: 'center', alignItems: "center", alignSelf: 'center' }}>
