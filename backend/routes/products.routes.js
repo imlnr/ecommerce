@@ -14,7 +14,7 @@ prodRouter.get('/', async (req, res) => {
 prodRouter.get('/:id', async (req, res) => {
     const id = req.params.id;
     try {
-        const product = await ProductModel.findById(id);
+        const product = await ProductModel.findById({_id:id});
         if (!product) {
             return res.status(404).json({ error: 'product not found' });
         }
@@ -63,7 +63,7 @@ prodRouter.delete('/:id', auth, async (req, res) => {
         if (!isthere) {
             return res.status(404).json({ "error": "Product not found" });
         }
-        await ProductModel.findByIdAndDelete(id);
+        await ProductModel.findByIdAndDelete({_id:id});
         res.status(200).json({ "message": "Product deleted successfully" });
     } catch (error) {
         res.status(400).json({ message: error.message });
