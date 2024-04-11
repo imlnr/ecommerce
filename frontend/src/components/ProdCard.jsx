@@ -23,31 +23,28 @@ export default function ProdCard({ prod }) {
                 display: "flex",
                 justifyContent: 'center',
                 flexDirection: 'column',
-                height: "420px",
-                // paddingY:"5px",
-                // transition: 'transform 0.3s ease',
+                alignItems:"center",
+                // height: "340px",
+                paddingY:"5px",
+                transition: 'transform 0.3s ease',
             }}
         >
             <CardMedia sx={{ display: "flex", justifyContent: 'center', alignItems: "center", alignSelf: 'center' }}>
                 <img src={prod.image} alt={prod.title} width={"90%"} height={"200px"} />
             </CardMedia>
-            <CardContent>
+            <CardContent sx={{paddingY:"0"}}>
                 <Typography gutterBottom variant="paragraph" component="div">
                     {prod.title}
                 </Typography>
                 <Typography variant='h6'>$ {prod.price}</Typography>
-                {/* <Typography variant="body2" color="text.secondary"> */}
-                {/* ranging across all continents except Antarctica */}
-                {/* {prod.description} */}
-                {/* </Typography> */}
-                <br />
-                <Rating
+
+                {/* <Rating
                     name="read-only"
                     value={prod.rating.rate}
                     readOnly
-                />
+                />  */}
             </CardContent>
-            <CardActions>
+            <CardActions sx={{alignSelf:"start"}}>
                 <IconButton onClick={() => setisclick(!isclick)} size='medium'>
                     <FavoriteIcon sx={isclick ? { fill: "red" } : {}} />
                 </IconButton>
