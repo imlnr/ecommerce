@@ -10,6 +10,15 @@ export const GET_PRODUCTS_REQUEST = "GET_PRODUCTS_REQUEST"
 export const GET_PRODUCTS_SUCCESS = "GET_PRODUCTS_SUCCESS"
 export const GET_PRODUCTS_FAILURE = "GET_PRODUCTS_FAILURE"
 
+export const ADD_TO_CART_REQUEST = "ADD_TO_CART_REQUEST"
+export const ADD_TO_CART_SUCCESS = "ADD_TO_CART_SUCCESS"
+export const ADD_TO_CART_FAILURE = "ADD_TO_CART_FAILURE"
 
 
-export const url = 'https://ecommerce-eb1o.onrender.com'
+export const ADD_TO_WISHLIST_REQUEST = "ADD_TO_WISHLIST_REQUEST"
+export const ADD_TO_WISHLIST_SUCCESS = "ADD_TO_WISHLIST_SUCCESS"
+export const ADD_TO_WISHLIST_FAILURE = "ADD_TO_WISHLIST_FAILURE"
+
+
+// export const url = 'https://ecommerce-eb1o.onrender.com'
+export const url = 'http://localhost:4500'
