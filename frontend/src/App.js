@@ -21,14 +21,14 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
         <Provider store={store}>
+      <BrowserRouter>
           <ThemeProvider theme={theme}>
             <Navbar />
             <MainRoutes />
           </ThemeProvider>
+      </BrowserRouter>
         </Provider>
-      {/* </BrowserRouter> */}
     </>
   )
 }
