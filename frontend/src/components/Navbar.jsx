@@ -13,9 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchBar from './SearchBar';
+import { Badge } from '@mui/material';
 const pages = [{ link: "/products", type: 'Products' }, { link: "/shops", type: 'Shops' }, { link: "/blogs", type: 'Blog' }];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -23,6 +24,8 @@ function Navbar() {
     const logged = useSelector((state) => state.isLoggedIn);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const cart = useSelector((state) => state.cart);
+    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -98,15 +101,26 @@ function Navbar() {
                                     </Link>
                                 </MenuItem>
                             ))}
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Link to="/signup" style={{ textDecoration: "none" }}>
+                                    <Typography textAlign="center">Signup</Typography>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Link to="/login" style={{ textDecoration: "none" }}>
+                                    <Typography textAlign="center">Login</Typography>
+                                </Link>
+                            </MenuItem>
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: "2" }} />
                     <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
+                        variant="body1"
+                        // noWrap
+                        component="span"
+                        href="/"
                         sx={{
+                            // width:""
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
@@ -126,7 +140,7 @@ function Navbar() {
                     }}>
                         <Box display={'flex'}>
                             {pages.map((page) => (
-                                <Link to={page.link} style={{ textDecoration: "none" }}>
+                                <Link to={page.link} style={{ textDecoration: "none", color: 'white' }}>
                                     <Button
                                         key={page.type}
                                         onClick={handleCloseNavMenu}
@@ -139,7 +153,10 @@ function Navbar() {
                         </Box>
                         <SearchBar />
                     </Box>
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box sx={logged ? { flexGrow: 0, width: "10%", display: 'flex', alignItems: "center", justifyContent: 'space-around' } : { flexGrow: "0", width: "15%", display: 'flex', alignItems: "center", justifyContent: 'space-around' }}>
+                        <Badge badgeContent={cart.length} color='secondary' sx={{ cursor: "pointer" }} onClick={() => navigate('/cart')}>
+                            <ShoppingCartIcon />
+                        </Badge>
                         {logged ?
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -147,7 +164,7 @@ function Navbar() {
                                 </IconButton>
                             </Tooltip> :
                             // <IconButton>
-                            <Button variant=''>
+                            <Button sx={{ display: { xs: 'none', md: 'block' } }}>
                                 <Link to='/login' style={{ textDecoration: "none", color: 'white' }}>
                                     Login
                                 </Link>

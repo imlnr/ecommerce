@@ -5,8 +5,8 @@ const initialState = {
     isLoggedIn: false,
     isLoading: false,
     isError: false,
-    wishlist: {},
-    cart: {}
+    wishlist: [],
+    cart: []
 }
 
 export const reducer = (state = initialState, action) => {

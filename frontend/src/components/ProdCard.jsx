@@ -16,35 +16,35 @@ export default function ProdCard({ prod }) {
 
     return (
         <Card
-            // onMouseEnter={() => setIsHovered(true)}
-            // onMouseLeave={() => setIsHovered(false)}
             sx={{
-                // transform: isHovered ? 'translateY(-10px)' : 'none',
                 display: "flex",
                 justifyContent: 'center',
                 flexDirection: 'column',
-                alignItems:"center",
+                alignItems: "center",
                 // height: "340px",
-                paddingY:"5px",
+                paddingY: "5px",
                 transition: 'transform 0.3s ease',
             }}
         >
             <CardMedia sx={{ display: "flex", justifyContent: 'center', alignItems: "center", alignSelf: 'center' }}>
-                <img src={prod.image} alt={prod.title} width={"90%"} height={"200px"} />
+                <img src={prod.image} alt={prod.title} width={"85%"} height={"200px"} />
             </CardMedia>
-            <CardContent sx={{paddingY:"0"}}>
+            <CardContent sx={{ paddingBottom: "0%" }}>
                 <Typography gutterBottom variant="paragraph" component="div">
                     {prod.title}
                 </Typography>
                 <Typography variant='h6'>$ {prod.price}</Typography>
-
-                {/* <Rating
-                    name="read-only"
-                    value={prod.rating.rate}
-                    readOnly
-                />  */}
+                <Typography variant='paragraph' sx={{ display: "flex", alignItems: 'center', gap: "2%" }}>
+                    {prod.rating.rate}
+                    <Rating
+                        size='small'
+                        name="read-only"
+                        value={prod.rating.rate}
+                        readOnly
+                    />
+                </Typography>
             </CardContent>
-            <CardActions sx={{alignSelf:"start"}}>
+            <CardActions sx={{ alignSelf: "start" }}>
                 <IconButton onClick={() => setisclick(!isclick)} size='medium'>
                     <FavoriteIcon sx={isclick ? { fill: "red" } : {}} />
                 </IconButton>
