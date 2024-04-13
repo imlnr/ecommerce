@@ -13,8 +13,8 @@ export const Get_Products = () => {
     }
 }
 
-export const getLogin = ({ email, password },navigate) => {
-    return async(dispatch) => {
+export const getLogin = ({ email, password }, navigate) => {
+    return async (dispatch) => {
         dispatch({ type: GET_LOGIN_REQUEST })
         console.log("working..");
         try {
@@ -26,7 +26,7 @@ export const getLogin = ({ email, password },navigate) => {
                 console.log(response.data);
                 localStorage.setItem('token', response.data.token);
                 dispatch({ type: GET_LOGIN_SUCCESS })
-                
+
                 navigate('/')
             }
             console.log("working..");
