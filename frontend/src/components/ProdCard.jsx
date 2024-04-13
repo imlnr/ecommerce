@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react'; // Import useState hook
+import { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -13,7 +13,7 @@ import Rating from '@mui/material/Rating';
 export default function ProdCard({ prod }) {
     // const [isHovered, setIsHovered] = useState(false);
     const [isclick, setisclick] = useState(false);
-
+    const rat = prod.rating.rate;
     return (
         <Card
             sx={{
@@ -39,7 +39,8 @@ export default function ProdCard({ prod }) {
                     <Rating
                         size='small'
                         name="read-only"
-                        value={prod.rating.rate}
+                        value={rat}
+                        precision={0.5}
                         readOnly
                     />
                 </Typography>

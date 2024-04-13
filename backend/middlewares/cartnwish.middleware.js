@@ -9,11 +9,11 @@ const cartnwish = (req, res, next) => {
             next()
         }
         else {
-            res.send({ "message": "you ar not authorized!" })
+            res.status(401).send({ "message": "you ar not authorized!" })
         }
     }
     else {
-        res.send({ "msg": "token not found!" })
+        res.status(401).send({ "message": "token not found!" })
     }
 }
 

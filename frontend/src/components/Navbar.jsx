@@ -154,7 +154,7 @@ function Navbar() {
                         <SearchBar />
                     </Box>
                     <Box sx={logged ? { flexGrow: 0, width: "10%", display: 'flex', alignItems: "center", justifyContent: 'space-around' } : { flexGrow: "0", width: "15%", display: 'flex', alignItems: "center", justifyContent: 'space-around' }}>
-                        <Badge badgeContent={cart.length} color='secondary' sx={{ cursor: "pointer" }} onClick={() => navigate('/cart')}>
+                        <Badge badgeContent={cart.length === 0 ? "0" : cart.length} color='secondary' sx={{ cursor: "pointer" }} onClick={() => navigate('/cart')}>
                             <ShoppingCartIcon />
                         </Badge>
                         {logged ?
