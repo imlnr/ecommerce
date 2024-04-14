@@ -36,3 +36,18 @@ export const getLogin = ({ email, password }, navigate) => {
         }
     }
 }
+
+export const add_toCart = async(id)=>{
+    return async(dispatch)=>{
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                Authorization: `Bearer ${token}`,
+            }
+            const response = axios.post(`${url}/cart/`,{productData:id},{headers});
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
