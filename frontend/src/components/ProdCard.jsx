@@ -9,11 +9,18 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import { useDispatch } from 'react-redux'
+import { add_toCart } from '../redux/appReducer/action';
 
 export default function ProdCard({ prod }) {
     // const [isHovered, setIsHovered] = useState(false);
     const [isclick, setisclick] = useState(false);
     const rat = prod.rating.rate;
+    // console.log(prod._id);
+    const dispatch = useDispatch();
+    const handle_cartadd = ()=>{
+        dispatch(add_toCart(prod));
+    }
     return (
         <Card
             sx={{
@@ -50,7 +57,7 @@ export default function ProdCard({ prod }) {
                     <FavoriteIcon sx={isclick ? { fill: "red" } : {}} />
                 </IconButton>
                 {/* <Button variant='outlined' size="small">Wishlist</Button> */}
-                <Button variant='contained' size="small">Add to cart</Button>
+                <Button onClick={handle_cartadd} variant='contained' size="small">Add to cart</Button>
             </CardActions>
         </Card>
     );

@@ -12,11 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchBar from './SearchBar';
 import { Badge } from '@mui/material';
+import { GET_LOGOUT } from '../redux/appReducer/action-types';
 const pages = [{ link: "/products", type: 'Products' }, { link: "/shops", type: 'Shops' }, { link: "/blogs", type: 'Blog' }];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -26,7 +27,7 @@ function Navbar() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const cart = useSelector((state) => state.cart);
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -41,6 +42,13 @@ function Navbar() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+    const handleprofileClicks = (item)=>{
+        if(item == 'Logout'){
+            dispatch({type:GET_LOGOUT})
+            localStorage.clear();
+        }
+        handleCloseUserMenu();
+    }
 
     return (
         <AppBar position="sticky">
@@ -191,7 +199,7 @@ function Navbar() {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                <MenuItem key={setting} onClick={()=>handleprofileClicks(setting)}>
                                     <Typography textAlign="center">{setting}</Typography>
                                 </MenuItem>
                             ))}

@@ -7,6 +7,7 @@ import Products from '../pages/Products'
 import Blogs from '../pages/Blogs'
 import Shops from '../pages/Shops'
 import Cart from '../pages/Cart'
+import PrivateRoutes from './PrivateRoutes'
 const MainRoutes = () => {
     return (
         <Routes>
@@ -16,7 +17,11 @@ const MainRoutes = () => {
             <Route path='/products' element={<Products />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/shops' element={<Shops />} />
-            <Route path='/cart' element={<Cart />} />
+            <Route path='/cart' element={
+                <PrivateRoutes>
+                    <Cart />
+                </PrivateRoutes>
+            } />
         </Routes>
     )
 }

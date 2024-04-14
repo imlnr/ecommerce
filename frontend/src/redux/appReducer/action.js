@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, url } from './action-types';
+import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, SET_USER_DATA, url } from './action-types';
 export const Get_Products = () => {
     return async (dispatch) => {
         dispatch({ type: GET_PRODUCTS_REQUEST })
@@ -23,10 +23,13 @@ export const getLogin = ({ email, password }, navigate) => {
                 password: password
             })
             if (response && response.data) {
-                console.log(response.data);
+                // console.log(response.data);
                 localStorage.setItem('token', response.data.token);
+                localStorage.setItem('islogged', true)
+                localStorage.setItem('user', JSON.stringify(response.data.user))
+                // console.log(response.data.user);
                 dispatch({ type: GET_LOGIN_SUCCESS })
-
+                dispatch({ type: SET_USER_DATA, payload: response.data.user })
                 navigate('/')
             }
             console.log("working..");
@@ -37,16 +40,42 @@ export const getLogin = ({ email, password }, navigate) => {
     }
 }
 
-export const add_toCart = async(id)=>{
-    return async(dispatch)=>{
+export const add_toCart = (prod) => {
+    return async (dispatch) => {
+        dispatch({ type: ADD_TO_CART_REQUEST })
         try {
             const token = localStorage.getItem('token');
             const headers = {
                 Authorization: `Bearer ${token}`,
             }
-            const response = axios.post(`${url}/cart/`,{productData:id},{headers});
-            console.log(response);
+            const response = await axios.post(`${url}/cart/`, { productData: prod._id }, { headers });
+            if (response && response.data) {
+                dispatch({ type: ADD_TO_CART_SUCCESS, payload: { userId: 889989898232838, productData: prod, added_at: Date.now() } })
+            }
+            console.log(response.data.message);
         } catch (error) {
+            console.log(error);
+            dispatch({ type: ADD_TO_CART_FAILURE })
+        }
+    }
+}
+
+
+export const get_cart_items = () => {
+    return async (dispatch) => {
+        try {
+            dispatch({ type: GET_CART_REQUEST })
+            const token = localStorage.getItem('token');
+            const headers = {
+                Authorization: `Bearer ${token}`,
+            }
+            const response = await axios.get(`${url}/cart/`, { headers });
+            // console.log(response.data.message);
+            if (response && response.data) {
+                dispatch({ type: GET_CART_SUCCESS, payload: response.data })
+            }
+        } catch (error) {
+            dispatch({ type: GET_CART_FAILURE })
             console.log(error);
         }
     }

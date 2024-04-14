@@ -1,8 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import Login from '../pages/Login';
 
-const PrivateRoutes = () => {
+const PrivateRoutes = ({ children }) => {
+    const isLogin = useSelector((state) => state.isLoggedIn);
     return (
-        <div>PrivateRoutes</div>
+        <>
+            {isLogin ? children : <Login />}
+        </>
     )
 }
 
