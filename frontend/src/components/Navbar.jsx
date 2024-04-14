@@ -43,7 +43,7 @@ function Navbar() {
         setAnchorElUser(null);
     };
     const handleprofileClicks = (item)=>{
-        if(item == 'Logout'){
+        if(item === 'Logout'){
             dispatch({type:GET_LOGOUT})
             localStorage.clear();
         }

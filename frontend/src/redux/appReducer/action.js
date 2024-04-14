@@ -62,6 +62,7 @@ export const add_toCart = (prod) => {
 
 
 export const get_cart_items = () => {
+    console.log("fetching your carts");
     return async (dispatch) => {
         try {
             dispatch({ type: GET_CART_REQUEST })
