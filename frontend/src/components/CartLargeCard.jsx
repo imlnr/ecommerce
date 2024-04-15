@@ -1,18 +1,23 @@
-import { Box, Button, Card, CardActions, CardContent, Checkbox, IconButton, Input, Rating, Typography } from '@mui/material'
+import { Box, Button, Card, CardActions, CardContent, Checkbox, IconButton, Rating, Typography } from '@mui/material'
 // import { flexbox } from '@mui/system';
 import React, { useState } from 'react'
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ShareIcon from '@mui/icons-material/Share';
+// import ShareIcon from '@mui/icons-material/Share';
 import Share from '@mui/icons-material/Share';
 import { useDispatch } from 'react-redux';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { delete_cart_item } from '../redux/appReducer/action';
 
 
 const CartLargeCard = ({ cart }) => {
-    // const cart = useSelector(state => state.cart)[0];
-    console.log(cart);
+    const cartdata = useSelector(state => state.cart);
+    // const reduce = ()=>{
+
+    // }
+    // console.log(cart);
     const dispatch = useDispatch();
     const [count, setcount] = useState(1);
     const handlecount = () => {
@@ -20,7 +25,7 @@ const CartLargeCard = ({ cart }) => {
             setcount(count - 1);
         }
     }
-    const handledelete = ()=>{
+    const handledelete = () => {
         dispatch(delete_cart_item(cart._id))
     }
     return (
@@ -28,7 +33,6 @@ const CartLargeCard = ({ cart }) => {
             display: 'flex',
             alignItems: 'center',
             marginBottom: "1px",
-            // justifyContent:'center',
             paddingY: "10px",
             height: "240px",
         }}>
@@ -37,7 +41,7 @@ const CartLargeCard = ({ cart }) => {
             <CardContent sx={{ display: 'flex', flexDirection: "column", justifyContent: "space-between", gap: "5px", alignSelf: 'flex-start', width: "100%" }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: "space-between" }} >
                     <Typography variant='h6'>{cart.productData.title}</Typography>
-                    <Typography variant='h6'>$ {cart.productData.price}</Typography>
+                    <Typography variant='h6'>$ {(count * cart.productData.price).toFixed(2)}</Typography>
                 </Box>
                 <Box variant='paragraph' sx={{ display: "flex", alignItems: 'center', gap: "1%" }}>
                     {cart.productData.rating.rate}
@@ -51,13 +55,13 @@ const CartLargeCard = ({ cart }) => {
                     </Rating>
                     ({cart.productData.rating.count})
                 </Box>
-                <Typography><b>product Category:</b>{cart.productData.category}</Typography>
-                <Typography><b>color:</b>silver</Typography>
+                <Typography><b>product Category :</b> {cart.productData.category}</Typography>
+                <Typography><b>color :</b> silver</Typography>
                 <CardActions sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', justifyContent: "center", gap: "10px" }}>
                     <Box sx={{ display: "flex", alignItems: 'center', justifyContent: 'center', gap: "5%" }}>
-                        <Button onClick={handlecount} variant='outlined' sx={{ fontSize: "18px" }} size='small'>-</Button>
+                        <IconButton onClick={handlecount}><RemoveIcon /></IconButton>
                         {count}
-                        <Button onClick={() => setcount(count + 1)} variant='outlined' sx={{ fontSize: "18px" }} size='small'>+</Button>
+                        <IconButton onClick={() => setcount(count + 1)}><AddIcon /></IconButton>
                     </Box>
                     <Box sx={{ display: "flex", alignItems: 'center', justifyContent: "center", gap: "4px" }}>
                         <IconButton onClick={handledelete}>

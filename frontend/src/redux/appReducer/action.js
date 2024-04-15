@@ -84,6 +84,7 @@ export const get_cart_items = () => {
 
 export const delete_cart_item = (id)=>{
     return async(dispatch)=>{
+        dispatch({type:ADD_TO_CART_REQUEST})
         try {
             const token = localStorage.getItem('token');
             const headers = {
@@ -91,6 +92,9 @@ export const delete_cart_item = (id)=>{
             }
             const res = await axios.delete(`${url}/cart/${id}`,{headers})
             console.log(res);
+            if(res.status === 200){
+                // dispatch({type:ADD_TO_CART_SUCCESS,payload:data})
+            }
         } catch (error) {
             console.log(error);
         }
