@@ -15,11 +15,11 @@ const Cart = () => {
     // <div>Cart</div> 
     <Box width={"90%"} margin={"auto"} marginTop={"20px"}>
       <Grid height={"300px"} justifyContent={'space-between'} gap={3} mt={0} container spacing={2} columns={16} flexGrow={1}>
-        <Grid  xs={11}>
+        <Grid xs={11}>
           {/* <Box>xs=8</Box> */}
-          {cart && cart.map((ele)=>(
-          <CartLargeCard cart={ele}/>
-          // console.log()
+          {cart && cart.map((ele) => (
+            <CartLargeCard cart={ele} />
+            // console.log()
           ))}
         </Grid>
         <Grid border={"1px solid"} xs={4}>

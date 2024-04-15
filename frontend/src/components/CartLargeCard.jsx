@@ -1,21 +1,40 @@
-import { Box, Card, CardContent, CardMedia, Checkbox, IconButton, Input, Rating, Typography } from '@mui/material'
-import React from 'react'
-import { useSelector } from 'react-redux'
+import { Box, Button, Card, CardActions, CardContent, Checkbox, IconButton, Input, Rating, Typography } from '@mui/material'
+// import { flexbox } from '@mui/system';
+import React, { useState } from 'react'
+// import { useSelector } from 'react-redux'
+import DeleteIcon from '@mui/icons-material/Delete';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ShareIcon from '@mui/icons-material/Share';
+import Share from '@mui/icons-material/Share';
+import { useDispatch } from 'react-redux';
+import { delete_cart_item } from '../redux/appReducer/action';
+
 
 const CartLargeCard = ({ cart }) => {
     // const cart = useSelector(state => state.cart)[0];
     console.log(cart);
+    const dispatch = useDispatch();
+    const [count, setcount] = useState(1);
+    const handlecount = () => {
+        if (count >= 2) {
+            setcount(count - 1);
+        }
+    }
+    const handledelete = ()=>{
+        dispatch(delete_cart_item(cart._id))
+    }
     return (
         <Card sx={{
             display: 'flex',
             alignItems: 'center',
             marginBottom: "1px",
+            // justifyContent:'center',
             paddingY: "10px",
-            height: "250px"
+            height: "240px",
         }}>
             <Checkbox sx={{ mr: "2%" }} />
             <img width={"16%"} height={"90%"} src={cart.productData.image} alt="" />
-            <CardContent sx={{ alignSelf: 'flex-start', width: "100%" }}>
+            <CardContent sx={{ display: 'flex', flexDirection: "column", justifyContent: "space-between", gap: "5px", alignSelf: 'flex-start', width: "100%" }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: "space-between" }} >
                     <Typography variant='h6'>{cart.productData.title}</Typography>
                     <Typography variant='h6'>$ {cart.productData.price}</Typography>
@@ -34,6 +53,26 @@ const CartLargeCard = ({ cart }) => {
                 </Box>
                 <Typography><b>product Category:</b>{cart.productData.category}</Typography>
                 <Typography><b>color:</b>silver</Typography>
+                <CardActions sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', justifyContent: "center", gap: "10px" }}>
+                    <Box sx={{ display: "flex", alignItems: 'center', justifyContent: 'center', gap: "5%" }}>
+                        <Button onClick={handlecount} variant='outlined' sx={{ fontSize: "18px" }} size='small'>-</Button>
+                        {count}
+                        <Button onClick={() => setcount(count + 1)} variant='outlined' sx={{ fontSize: "18px" }} size='small'>+</Button>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: 'center', justifyContent: "center", gap: "4px" }}>
+                        <IconButton onClick={handledelete}>
+                            <DeleteIcon />
+                        </IconButton>
+                        |
+                        <IconButton>
+                            <FavoriteBorderIcon />
+                        </IconButton>
+                        |
+                        <IconButton>
+                            <Share />
+                        </IconButton>
+                    </Box>
+                </CardActions>
             </CardContent>
         </Card>
     )

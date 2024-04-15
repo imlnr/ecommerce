@@ -81,3 +81,18 @@ export const get_cart_items = () => {
         }
     }
 }
+
+export const delete_cart_item = (id)=>{
+    return async(dispatch)=>{
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                Authorization: `Bearer ${token}`,
+            }
+            const res = await axios.delete(`${url}/cart/${id}`,{headers})
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
