@@ -39,6 +39,23 @@ export const getLogin = ({ email, password }, navigate) => {
         }
     }
 }
+export const get_sign_up = (data,navigate) => {
+    console.log(data);
+    return async (dispatch) => {
+        try {
+            const res = await axios.post(`${url}/user/register`, {
+                email: data.email,
+                name: data.name,
+                avatar: data.avatar,
+                password: data.password
+            })
+            console.log(res.data);
+            navigate('/login')
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 
 export const add_toCart = (prod) => {
     return async (dispatch) => {

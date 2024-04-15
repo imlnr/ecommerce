@@ -12,7 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { get_sign_up } from '../redux/appReducer/action';
 
 function Copyright(props) {
   return (
@@ -30,15 +32,20 @@ function Copyright(props) {
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
-
 export default function Signup() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    const value = {
+      name: data.get('name'),
       email: data.get('email'),
+      avatar: 'https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg',
       password: data.get('password'),
-    });
+    };
+    console.log(value);
+    dispatch(get_sign_up(value,navigate))
   };
 
   return (
@@ -61,18 +68,18 @@ export default function Signup() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="name"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="name"
+                  label="Name"
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -81,7 +88,7 @@ export default function Signup() {
                   name="lastName"
                   autoComplete="family-name"
                 />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   required

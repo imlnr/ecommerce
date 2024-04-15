@@ -19,7 +19,7 @@ export const reducer = (state = initialState, action) => {
         case GET_LOGIN_FAILURE:
             return { ...state, isLoading: false, isError: true }
         case GET_LOGOUT:
-            return { ...state, isLoggedIn: false }
+            return { ...state, isLoggedIn: false, products: [], cart: [], wishlist: [] }
         case GET_PRODUCTS_REQUEST:
             return { ...state, isLoading: true, isError: false }
         case GET_PRODUCTS_SUCCESS:
