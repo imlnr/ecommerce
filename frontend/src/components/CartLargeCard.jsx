@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActions, CardContent, Checkbox, IconButton, Rating, Typography } from '@mui/material'
+import { Box, Card, CardActions, CardContent, Checkbox, IconButton, Rating, Typography } from '@mui/material'
 // import { flexbox } from '@mui/system';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -14,10 +14,6 @@ import { delete_cart_item } from '../redux/appReducer/action';
 
 const CartLargeCard = ({ cart }) => {
     const cartdata = useSelector(state => state.cart);
-    // const reduce = ()=>{
-
-    // }
-    // console.log(cart);
     const dispatch = useDispatch();
     const [count, setcount] = useState(1);
     const handlecount = () => {
@@ -26,7 +22,7 @@ const CartLargeCard = ({ cart }) => {
         }
     }
     const handledelete = () => {
-        dispatch(delete_cart_item(cart._id))
+        dispatch(delete_cart_item(cartdata.filter((ele) => ele._id !== cart._id), cart._id))
     }
     return (
         <Card sx={{
