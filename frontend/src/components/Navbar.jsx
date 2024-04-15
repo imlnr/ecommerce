@@ -23,6 +23,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
     const logged = useSelector((state) => state.isLoggedIn);
+    const user = useSelector((state)=> state.user);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const cart = useSelector((state) => state.cart);
@@ -170,7 +171,7 @@ function Navbar() {
                         {logged ?
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    <Avatar alt="Remy Sharp" src={user.avatar} />
                                 </IconButton>
                             </Tooltip> :
                             // <IconButton>

@@ -7,7 +7,7 @@ const initialState = {
     isError: false,
     wishlist: [],
     cart: [],
-    user: localStorage.getItem('user') || {}
+    user: JSON.parse(localStorage.getItem('user')) || {}
 }
 
 export const reducer = (state = initialState, action) => {
