@@ -48,6 +48,9 @@ function Navbar() {
             dispatch({type:GET_LOGOUT})
             localStorage.clear();
         }
+        if(item === 'Profile'){
+            navigate('/profile')
+        }
         handleCloseUserMenu();
     }
 

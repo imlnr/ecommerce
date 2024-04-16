@@ -12,14 +12,18 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { delete_cart_item } from '../redux/appReducer/action';
 
 
-const CartLargeCard = ({ cart }) => {
+const CartLargeCard = ({ cart}) => {
     const cartdata = useSelector(state => state.cart);
     const dispatch = useDispatch();
     const [count, setcount] = useState(1);
+    // console.log(count);
     const handlecount = () => {
         if (count >= 2) {
             setcount(count - 1);
         }
+    }
+    const handlecountsum = ()=>{
+        setcount(count + 1)
     }
     const handledelete = () => {
         dispatch(delete_cart_item(cartdata.filter((ele) => ele._id !== cart._id), cart._id))
@@ -30,7 +34,7 @@ const CartLargeCard = ({ cart }) => {
             alignItems: 'center',
             marginBottom: "1px",
             paddingY: "10px",
-            height: "240px",
+            height: "235px",
         }}>
             <Checkbox sx={{ mr: "2%" }} />
             <img width={"16%"} height={"90%"} src={cart.productData.image} alt="" />
@@ -57,7 +61,7 @@ const CartLargeCard = ({ cart }) => {
                     <Box sx={{ display: "flex", alignItems: 'center', justifyContent: 'center', gap: "5%" }}>
                         <IconButton onClick={handlecount}><RemoveIcon /></IconButton>
                         {count}
-                        <IconButton onClick={() => setcount(count + 1)}><AddIcon /></IconButton>
+                        <IconButton onClick={handlecountsum}><AddIcon /></IconButton>
                     </Box>
                     <Box sx={{ display: "flex", alignItems: 'center', justifyContent: "center", gap: "4px" }}>
                         <IconButton onClick={handledelete}>

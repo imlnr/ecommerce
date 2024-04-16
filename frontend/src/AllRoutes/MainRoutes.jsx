@@ -8,6 +8,7 @@ import Blogs from '../pages/Blogs'
 import Shops from '../pages/Shops'
 import Cart from '../pages/Cart'
 import PrivateRoutes from './PrivateRoutes'
+import Profile from '../pages/Profile'
 const MainRoutes = () => {
     return (
         <Routes>
@@ -22,6 +23,7 @@ const MainRoutes = () => {
                     <Cart />
                 </PrivateRoutes>
             } />
+            <Route path='/profile' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
         </Routes>
     )
 }

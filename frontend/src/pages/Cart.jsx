@@ -1,15 +1,32 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { get_cart_items } from '../redux/appReducer/action'
 import { useDispatch, useSelector } from 'react-redux'
 import { Grid, Box, Typography } from '@mui/material';
 import CartLargeCard from '../components/CartLargeCard';
 const Cart = () => {
-  const user = useSelector(state => state.user);
+  // const user = useSelector(state => state.user);
   const cart = useSelector(state => state.cart);
+  const [total, settotal] = useState(0);
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(get_cart_items());
+    // totalPrice()
   }, [dispatch])
+
+  useEffect(() => {
+    const calculateTotal = () => {
+      let totalPrice = 0;
+      if (cart && cart.length > 0) {
+        cart.forEach(item => {
+          totalPrice += item.productData.price;
+        });
+      }
+      settotal(totalPrice);
+    };
+
+    calculateTotal();
+  }, [cart]);
   return (
     // <div>Cart</div> 
     <Box minHeight={"100vh"} paddingTop={"20px"} sx={{ backgroundColor: "#f8f9fa" }} >
@@ -28,10 +45,10 @@ const Cart = () => {
             <CartLargeCard key={ele._id} cart={ele} />
             // console.log()
           ))}
-          <Typography paddingY={"1%"} paddingX={"2%"} variant='h6' textAlign={"right"}>Subtotal ({cart.length} items): <b>${5000}</b></Typography>
+          <Typography paddingY={"1%"} paddingX={"2%"} variant='h6' textAlign={"right"}>subtotal ({cart.length} items): <b>${total}</b></Typography>
         </Grid>
         <Grid border={"1px solid"} xs={4}>
-          <Box>xs=8</Box>
+          <Box>{total}</Box>
         </Grid>
       </Grid>
     </Box>
