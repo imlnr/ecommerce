@@ -43,7 +43,6 @@ export const reducer = (state = initialState, action) => {
         case REMOVE_FROM_CART_REQUEST:
             return { ...state, isLoading: true, isError: false }
         case REMOVE_FROM_CART_SUCCESS:
-
             return { ...state, isLoading: false, cart: action.payload }
         case REMOVE_FROM_CART_FAILURE:
             return { ...state, isLoading: false, isError: true }
