@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { get_cart_items } from '../redux/appReducer/action'
 import { useDispatch, useSelector } from 'react-redux'
-import { Grid, Box, Typography } from '@mui/material';
+import { Grid, Box, Typography, Button, Accordion, AccordionDetails, AccordionSummary, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import CartLargeCard from '../components/CartLargeCard';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Link } from 'react-router-dom';
 const Cart = () => {
   // const user = useSelector(state => state.user);
   const cart = useSelector(state => state.cart);
   const [total, settotal] = useState(0);
-  
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(get_cart_items());
@@ -31,7 +33,7 @@ const Cart = () => {
     // <div>Cart</div> 
     <Box minHeight={"100vh"} paddingTop={"20px"} sx={{ backgroundColor: "#f8f9fa" }} >
       <Grid width={"90%"} margin={"auto"} justifyContent={'space-between'} gap={3} container spacing={2} columns={16} flexGrow={1}>
-        <Grid xs={11} sx={{ backgroundColor: 'white' }}>
+        <Grid xs={11.5} sx={{ backgroundColor: 'white',borderRadius:'8px' }}>
           {/* <Box>xs=8</Box> */}
           <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: "left" }}>
             <Typography paddingTop={"0.4%"} paddingX={"1%"} variant='h4'>Shopping Cart</Typography>
@@ -45,10 +47,28 @@ const Cart = () => {
             <CartLargeCard key={ele._id} cart={ele} />
             // console.log()
           ))}
-          <Typography paddingY={"1%"} paddingX={"2%"} variant='h6' textAlign={"right"}>subtotal ({cart.length} items): <b>${total}</b></Typography>
+          <Typography paddingY={"1%"} paddingX={"2%"} variant='h6' textAlign={"right"}>Subtotal ({cart.length} items): <b>${total}</b></Typography>
         </Grid>
-        <Grid border={"1px solid"} xs={4}>
-          <Box>{total}</Box>
+        <Grid height={'fit-content'} paddingX={"1%"} paddingY={"1%"} sx={{borderRadius:'8px', display: 'flex', flexDirection: "column", gap: "8px", backgroundColor:'white'}} xs={3.5}>
+          <Typography variant='h6'>Subtotal ({cart.length} items): <b>${total}</b></Typography>
+          <FormGroup>
+            <FormControlLabel control={<Checkbox />} label="This order contains a gift" />
+          </FormGroup>
+          <Button fullWidth variant='contained'>Proceed to Buy</Button>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ArrowDropDownIcon />}
+              aria-controls="panel2-content"
+              id="panel2-header"
+            >
+              <Typography>EMI Available</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography fontSize={'small'}>
+                Your order qualifies for EMI with valid credit cards (not available on purchase of Gold, Jewelry, Gift cards and Amazon pay balance top up). <Link to='#'>Learn more</Link>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
         </Grid>
       </Grid>
     </Box>

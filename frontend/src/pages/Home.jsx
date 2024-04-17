@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import Carousel from '../components/Carousel'
 import { useDispatch } from 'react-redux'
 import { get_cart_items } from '../redux/appReducer/action'
+// import CarouselImage from '../components/Carousel'
 const Home = () => {
   const dispatch  = useDispatch();
   useEffect(() => {
@@ -9,7 +9,7 @@ const Home = () => {
   }, [dispatch])
   return (
     <div>Home</div>
-    // <Carousel/>
+    // <CarouselImage/>
   )
 }
 
