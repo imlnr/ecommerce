@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Box, Typography } from '@mui/material';
+import { Button, Box, Typography, IconButton } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import img1 from '../assets/D126119617_WLD-BAU-iQOO125G-DesignSIM_NEW_LAUNCH_tallhero_3000x1200_2._CB560849646_.jpg'
+import img2 from '../assets/Gaming-fest_HERO_3000x1200._CB560855689_.jpg'
+import img3 from '../assets/Hot_Summer_Sale_Hero_3000X1200_Ref_Fallback_2x._CB560893869_.jpg'
 
 const imageData = [
     {
-        src: 'https://t3.ftcdn.net/jpg/03/16/91/28/360_F_316912806_RCeHVmUx5LuBMi7MKYTY5arkE4I0DcpU.jpg',
+        src: img1,
         alt: 'Image 1',
         caption: 'Caption 1'
     },
     {
-        src: 'https://t3.ftcdn.net/jpg/03/16/91/28/360_F_316912806_RCeHVmUx5LuBMi7MKYTY5arkE4I0DcpU.jpg',
+        src: img2,
         alt: 'Image 2',
         caption: 'Caption 2'
     },
     {
-        src: 'https://t3.ftcdn.net/jpg/03/16/91/28/360_F_316912806_RCeHVmUx5LuBMi7MKYTY5arkE4I0DcpU.jpg',
+        src: img3,
         alt: 'Image 3',
         caption: 'Caption 3'
     },
@@ -47,28 +50,66 @@ const Carousel = () => {
     const currentImage = imageData[currentIndex];
 
     return (
-        <Box>
-            <Box>
-                {/* Display current image */}
-                <img
-                    src={currentImage.src}
-                    alt={currentImage.alt}
-                    style={{ width: '100%', height: 'auto' }}
-                />
-                <Typography variant="h6" style={{ textAlign: 'center', marginTop: 10 }}>
-                    {currentImage.caption}
-                </Typography>
-            </Box>
+        <Box position="relative" width="100%">
+            {/* Image */}
+            <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                style={{ width: '100%', height: 'auto' }}
+            />
+
+            {/* Caption text centered over the image */}
+            <Typography
+                variant="h6"
+                style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    color: 'white',
+                    textAlign: 'center',
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    padding: '5px',
+                    borderRadius: '5px'
+                }}
+            >
+                {currentImage.caption}
+            </Typography>
 
             {/* Navigation buttons */}
-            <Box display="flex" justifyContent="center" mt={2}>
-                <Button variant="contained" color="primary" onClick={prevSlide}>
-                    <ChevronLeft />
-                </Button>
-                <Button variant="contained" color="primary" onClick={nextSlide} style={{ marginLeft: 10 }}>
-                    <ChevronRight />
-                </Button>
-            </Box>
+            <IconButton
+                sx={{ color: 'white' }}
+                variant="contained"
+                size='large'
+                // color="primary"
+                onClick={prevSlide}
+                style={{
+                    position: 'absolute',
+                    left: '10px',
+                    top: '20%',
+                    transform: 'translateY(-20%)',
+                    zIndex: 1,
+                }}
+            >
+                <ChevronLeft fontSize='large' />
+            </IconButton>
+
+            <IconButton
+                sx={{ color: 'white' }}
+                size='large'
+                variant="contained"
+                // color="primary"
+                onClick={nextSlide}
+                style={{
+                    position: 'absolute',
+                    right: '10px',
+                    top: '20%',
+                    transform: 'translateY(-20%)',
+                    zIndex: 1,
+                }}
+            >
+                <ChevronRight fontSize='large' />
+            </IconButton>
         </Box>
     );
 };

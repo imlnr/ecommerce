@@ -14,6 +14,7 @@ import { delete_cart_item } from '../redux/appReducer/action';
 
 const CartLargeCard = ({ cart}) => {
     const cartdata = useSelector(state => state.cart);
+    console.log(cart.quantity);
     const dispatch = useDispatch();
     const [count, setcount] = useState(1);
     // console.log(count);
@@ -35,6 +36,7 @@ const CartLargeCard = ({ cart}) => {
             marginBottom: "1px",
             paddingY: "10px",
             height: "235px",
+            // paddingLeft:"1.5%"
         }}>
             <Checkbox sx={{ mr: "2%" }} />
             <img width={"16%"} height={"90%"} src={cart.productData.image} alt="" />

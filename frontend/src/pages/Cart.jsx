@@ -52,7 +52,7 @@ const Cart = () => {
               <CartLargeCard key={ele._id} cart={ele} />
               // console.log()
             ))}
-            <Typography paddingY={"1%"} paddingX={"2%"} variant='h6' textAlign={"right"}>Subtotal ({cart.length} items): <b>${total}</b></Typography>
+            <Typography paddingY={"1%"} paddingX={"2%"} variant='h6' textAlign={"right"}>Subtotal ({cart.length} items): <b>${total.toFixed(2)}</b></Typography>
           </Grid>
           <Grid height={'fit-content'} paddingX={"1%"} paddingY={"1%"} sx={{ borderRadius: '8px', display: 'flex', flexDirection: "column", gap: "8px", backgroundColor: 'white' }} xs={3.5}>
             <Typography variant='h6'>Subtotal ({cart.length} items): <b>${total.toFixed(2)}</b></Typography>
