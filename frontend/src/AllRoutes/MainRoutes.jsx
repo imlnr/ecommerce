@@ -10,6 +10,7 @@ import Cart from '../pages/Cart'
 import PrivateRoutes from './PrivateRoutes'
 import Profile from '../pages/Profile'
 import SingleProd from '../pages/SingleProd'
+import Checkout from '../pages/Checkout'
 const MainRoutes = () => {
     return (
         <Routes>
@@ -26,6 +27,7 @@ const MainRoutes = () => {
             } />
             <Route path='/products/:id' element={<SingleProd />} />
             <Route path='/profile' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
+            <Route path='/checkout' element={<Checkout/>}/>
         </Routes>
     )
 }

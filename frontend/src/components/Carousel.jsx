@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Box, Typography, IconButton } from '@mui/material';
+import { Box, Typography, IconButton } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import img1 from '../assets/D126119617_WLD-BAU-iQOO125G-DesignSIM_NEW_LAUNCH_tallhero_3000x1200_2._CB560849646_.jpg'
 import img2 from '../assets/Gaming-fest_HERO_3000x1200._CB560855689_.jpg'
@@ -50,7 +50,7 @@ const Carousel = () => {
     const currentImage = imageData[currentIndex];
 
     return (
-        <Box position="relative" width="100%">
+        <Box paddingX={"3%"} position="relative" >
             {/* Image */}
             <img
                 src={currentImage.src}
@@ -85,7 +85,7 @@ const Carousel = () => {
                 onClick={prevSlide}
                 style={{
                     position: 'absolute',
-                    left: '10px',
+                    left: '3%',
                     top: '20%',
                     transform: 'translateY(-20%)',
                     zIndex: 1,
@@ -102,7 +102,7 @@ const Carousel = () => {
                 onClick={nextSlide}
                 style={{
                     position: 'absolute',
-                    right: '10px',
+                    right: '3%',
                     top: '20%',
                     transform: 'translateY(-20%)',
                     zIndex: 1,

@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Grid, Box, Typography, Button, Accordion, AccordionDetails, AccordionSummary, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import CartLargeCard from '../components/CartLargeCard';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 const Cart = () => {
   // const user = useSelector(state => state.user);
   const cart = useSelector(state => state.cart);
   const [total, settotal] = useState(0);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -34,9 +35,9 @@ const Cart = () => {
   return (
     <>
       {
-        loading ? <Box sx={{ position: 'absolute', minWidth: "100vw", minHeight: "100vh", display: "flex", alignItems: 'center', justifyContent: "center" }}><Loading /></Box> : ""
+        loading ? <Box sx={{ position: 'absolute', minWidth: "100vw", left: "0", zIndex: "1", minHeight: "100vh", display: "flex", alignItems: 'center', justifyContent: "center" }}><Loading /></Box> : ""
       }
-      <Box minHeight={"100vh"} paddingTop={"20px"} sx={{ backgroundColor: "#f8f9fa" }} >
+      <Box minHeight={"100vh"} paddingTop={"20px"} sx={{ backgroundColor: "#f8f9fa", filter: loading ? "blur(5px)" : 'none' }} >
         <Grid width={"90%"} margin={"auto"} justifyContent={'space-between'} gap={3} container spacing={2} columns={16} flexGrow={1}>
           <Grid xs={11.5} sx={{ backgroundColor: 'white', borderRadius: '8px' }}>
             {/* <Box>xs=8</Box> */}
@@ -59,7 +60,7 @@ const Cart = () => {
             <FormGroup>
               <FormControlLabel control={<Checkbox />} label="This order contains a gift" />
             </FormGroup>
-            <Button fullWidth variant='contained'>Proceed to Buy</Button>
+            <Button onClick={()=> navigate('/checkout')} fullWidth variant='contained'>Proceed to Buy</Button>
             <Accordion>
               <AccordionSummary
                 expandIcon={<ArrowDropDownIcon />}
@@ -77,8 +78,7 @@ const Cart = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
-    // <div>Cart</div> 
+    </> 
   )
 }
 
