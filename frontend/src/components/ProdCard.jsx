@@ -18,7 +18,7 @@ export default function ProdCard({ prod }) {
     const rat = prod.rating.rate;
     // console.log(prod._id);
     const dispatch = useDispatch();
-    const handle_cartadd = () => {
+    const handle_cartadd = ()=>{
         dispatch(add_toCart(prod));
     }
     return (
@@ -27,7 +27,7 @@ export default function ProdCard({ prod }) {
                 display: "flex",
                 justifyContent: 'center',
                 flexDirection: 'column',
-                alignItems: "center",
+                // alignItems: "center",
                 // height: "340px",
                 paddingY: "5px",
                 transition: 'transform 0.3s ease',
@@ -52,12 +52,12 @@ export default function ProdCard({ prod }) {
                     />
                 </Typography>
             </CardContent>
-            <CardActions sx={{ alignSelf: "start" }}>
+            <CardActions sx={{display:"flex",alignItems:'center',justifyContent:'space-between'}}>
                 <IconButton onClick={() => setisclick(!isclick)} size='medium'>
                     <FavoriteIcon sx={isclick ? { fill: "red" } : {}} />
                 </IconButton>
                 {/* <Button variant='outlined' size="small">Wishlist</Button> */}
-                <Button onClick={handle_cartadd} variant='contained' size="small">Add to cart</Button>
+                <Button fullWidth onClick={handle_cartadd} variant='contained' size="small">Add to cart</Button>
             </CardActions>
         </Card>
     );
