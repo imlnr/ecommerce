@@ -18,7 +18,7 @@ export default function ProdCard({ prod }) {
     const rat = prod.rating.rate;
     // console.log(prod._id);
     const dispatch = useDispatch();
-    const handle_cartadd = ()=>{
+    const handle_cartadd = () => {
         dispatch(add_toCart(prod));
     }
     return (

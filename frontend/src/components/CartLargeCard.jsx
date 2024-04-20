@@ -12,7 +12,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { delete_cart_item } from '../redux/appReducer/action';
 
 
-const CartLargeCard = ({ cart}) => {
+const CartLargeCard = ({ cart }) => {
     const cartdata = useSelector(state => state.cart);
     console.log(cart.quantity);
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const CartLargeCard = ({ cart}) => {
             setcount(count - 1);
         }
     }
-    const handlecountsum = ()=>{
+    const handlecountsum = () => {
         setcount(count + 1)
     }
     const handledelete = () => {

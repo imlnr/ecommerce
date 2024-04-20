@@ -129,7 +129,7 @@ export default function Checkout() {
                     sm={5}
                     lg={4}
                     sx={{
-                        
+
                         display: { xs: 'none', md: 'flex' },
                         flexDirection: 'column',
                         backgroundColor: 'background.paper',
