@@ -1,0 +1,278 @@
+[
+    {
+        "id": 1,
+        "title": "TechGuru Wireless Bluetooth Earbuds",
+        "price": 49.99,
+        "description": "Experience true wireless freedom with the TechGuru Wireless Bluetooth Earbuds. Advanced Bluetooth technology, ergonomic design, and crystal-clear sound quality.",
+        "category": "electronics",
+        "image": "https://www.boat-lifestyle.com/cdn/shop/products/AD181-FI_Black01_e7aa0e47-1514-45d7-87e1-d39f9a869d89_288x.png?v=1708416957",
+        "rating": {
+            "rate": 4.5,
+            "count": 200
+        }
+    },
+    {
+        "id": 2,
+        "title": "StylishCity Men's Slim Fit Jeans",
+        "price": 29.99,
+        "description": "Upgrade your denim game with StylishCity Men's Slim Fit Jeans. Classic style meets modern comfort in these versatile jeans.",
+        "category": "men's clothing",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNY_MSf1WUJneYA_bevo7a_8GjJiyPME4S1A4LOP39Rw&s",
+        "rating": {
+            "rate": 4.2,
+            "count": 180
+        }
+    },
+    {
+        "id": 3,
+        "title": "GadgetMaster Smartwatch Pro",
+        "price": 99.99,
+        "description": "Stay connected and stay active with the GadgetMaster Smartwatch Pro. Track your fitness, receive notifications, and more, all from your wrist.",
+        "category": "electronics",
+        "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MT5J3ref_VW_34FR+watch-49-titanium-ultra2_VW_34FR+watch-face-49-alpine-ultra2_VW_34FR_GEO_IN?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1694507270905",
+        "rating": {
+            "rate": 4.7,
+            "count": 300
+        }
+    },
+    {
+        "id": 5,
+        "title": "TrendyTech Gaming Mouse RGB",
+        "price": 19.99,
+        "description": "Dominate the competition with the TrendyTech Gaming Mouse RGB. Precision tracking, customizable RGB lighting, and ergonomic design for hours of comfortable gaming.",
+        "category": "electronics",
+        "image": "https://www.jiomart.com/images/product/original/rvh3q3dfsc/gaming-mouse-with-6-buttons-wired-optical-mouse-with-rgb-lights-for-laptops-desktop-computer-product-images-orvh3q3dfsc-p595275392-0-202211121918.jpg?im=Resize=(420,420)",
+        "rating": {
+            "rate": 4.8,
+            "count": 400
+        }
+    },
+    {
+        "id": 6,
+        "title": "Zara Women's Perfume",
+        "price": 49.99,
+        "description": "Indulge your senses with Zara Women's Perfume. Captivating fragrance that lasts all day, perfect for any occasion.",
+        "category": "women's accessories",
+        "image": "https://i.pinimg.com/564x/5c/6d/7e/5c6d7e5015696c361e2b4397a406b66b.jpg",
+        "rating": {
+            "rate": 4.4,
+            "count": 250
+        }
+    },
+    {
+        "id": 7,
+        "title": "iGadget Pro 11-Inch Tablet",
+        "price": 299.99,
+        "description": "Unleash your creativity with the iGadget Pro 11-Inch Tablet. Stunning display, lightning-fast performance, and versatile functionality for work or play.",
+        "category": "electronics",
+        "image": "https://media.wired.com/photos/64d53749c859c4a1cdecc556/1:1/w_1442,h_1442,c_limit/Samsung-Galaxy-Tab-S9-Series-SOURCE-Samsung-Featured-Gear.jpg",
+        "rating": {
+            "rate": 4.6,
+            "count": 350
+        }
+    },
+    {
+        "id": 8,
+        "title": "UrbanStyle Men's Leather Wallet",
+        "price": 24.99,
+        "description": "Keep your essentials organized in style with the UrbanStyle Men's Leather Wallet. Sleek design, premium leather, and ample storage.",
+        "category": "men's accessories",
+        "image": "https://i.etsystatic.com/20558711/r/il/1589ee/5624630567/il_fullxfull.5624630567_hs7l.jpg",
+        "rating": {
+            "rate": 4.3,
+            "count": 220
+        }
+    },
+    {
+        "id": 9,
+        "title": "Fashionista Sunglasses Collection",
+        "price": 14.99,
+        "description": "Complete your look with the Fashionista Sunglasses Collection. Trendy designs, UV protection, and affordable prices.",
+        "category": "women's accessories",
+        "image": "https://www.luluhypermarket.in/medias/1422759-01.jpg-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxNTkwMzB8aW1hZ2UvanBlZ3xhRFJtTDJneU9DODVNalU0TURJNU1UZzNNVEF5THpFME1qSTNOVGt0TURFdWFuQm5YekV5TURCWGVERXlNREJJfDFlMzAyNmUxNmU4Mjc3ODkwYjcyNjhhZmYyNGNhZDA1NWY5NjljODYxNmNmMjhmYTNjNWM1N2FmNGI2NDY0ZDg",
+        "rating": {
+            "rate": 4.1,
+            "count": 180
+        }
+    },
+    {
+        "id": 10,
+        "title": "SportyEdge Men's Running Shoes",
+        "price": 59.99,
+        "description": "Achieve your fitness goals in comfort and style with the SportyEdge Men's Running Shoes. Lightweight, responsive cushioning, and durable construction.",
+        "category": "men's shoes",
+        "image": "https://static.nike.com/a/images/t_default/d0e15fdf-cd8f-4020-8235-f31a0e07068e/revolution-7-road-running-shoes-Dfvsch.png",
+        "rating": {
+            "rate": 4.5,
+            "count": 300
+        }
+    },
+    {
+        "id": 11,
+        "title": "GizmoTech Portable Power Bank",
+        "price": 39.99,
+        "description": "Stay charged and connected wherever you go with the GizmoTech Portable Power Bank. High-capacity battery, compact design, and multiple charging ports.",
+        "category": "electronics",
+        "image": "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1600434881.35114664!800x800!85.jpg",
+        "rating": {
+            "rate": 4.7,
+            "count": 400
+        }
+    },
+    {
+        "id": 13,
+        "title": "AquaSplash Waterproof Bluetooth Speaker",
+        "price": 29.99,
+        "description": "Take your music anywhere with the AquaSplash Waterproof Bluetooth Speaker. Waterproof, shockproof, and perfect for outdoor adventures.",
+        "category": "electronics",
+        "image": "https://www.reliancedigital.in/medias/JBL-GO-Essential-Bluetooth-Speaker-493711858-i-2-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w3MDYzN3xpbWFnZS9qcGVnfGltYWdlcy9oOTUvaDJlLzk5OTMwNjI4NzUxNjYuanBnfGZjYWNkYjBjMDAyNmFmMTNiYzY1YWYyMGU5ZjQ5YjA2ZTViMmU2OTYwZWY4ZTQ5YmM1OGRjNWY0ODc4NDYxNTA",
+        "rating": {
+            "rate": 4.3,
+            "count": 300
+        }
+    },
+    {
+        "id": 14,
+        "title": "CasualComfort Men's Hoodie",
+        "price": 39.99,
+        "description": "Stay cozy and stylish with the CasualComfort Men's Hoodie. Soft fabric, classic design, and perfect for layering in any season.",
+        "category": "men's clothing",
+        "image": "https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1687365007/475374_X3Q25_1289_001_100_0000_Light.jpg",
+        "rating": {
+            "rate": 4.0,
+            "count": 200
+        }
+    },
+    {
+        "id": 15,
+        "title": "EcoTrend Reusable Water Bottle",
+        "price": 14.99,
+        "description": "Stay hydrated and eco-friendly with the EcoTrend Reusable Water Bottle. BPA-free, durable, and stylish design for on-the-go hydration.",
+        "category": "accessories",
+        "image": "https://cdn.moglix.com/p/WOqvXqSzYpaCf-xxlarge.jpg",
+        "rating": {
+            "rate": 4.6,
+            "count": 350
+        }
+    },
+    {
+        "id": 16,
+        "title": "ActiveLife Women's Yoga Pants",
+        "price": 24.99,
+        "description": "Find your zen in the ActiveLife Women's Yoga Pants. Moisture-wicking fabric, flattering fit, and perfect for yoga, Pilates, or lounging.",
+        "category": "women's clothing",
+        "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/0c69a390-2deb-4d3b-8371-2a690d4e812d/universa-support-high-waisted-7-8-leggings-with-pockets-77X1ds.png",
+        "rating": {
+            "rate": 4.8,
+            "count": 400
+        }
+    },
+    {
+        "id": 17,
+        "title": "TechMaster Wireless Charging Pad",
+        "price": 19.99,
+        "description": "Simplify your charging routine with the TechMaster Wireless Charging Pad. Fast, efficient charging for your Qi-enabled devices.",
+        "category": "electronics",
+        "image": "https://www.myimaginestore.com/media/catalog/product/cache/4a48ac28cbb6e9c41470e5be5a6d3043/6/1/612u6nngtul._sl1500_.jpg",
+        "rating": {
+            "rate": 4.5,
+            "count": 250
+        }
+    },
+    {
+        "id": 18,
+        "title": "OutdoorExplorer Men's Waterproof Jacket",
+        "price": 69.99,
+        "description": "Stay dry and comfortable on your outdoor adventures with the OutdoorExplorer Men's Waterproof Jacket. Waterproof, windproof, and breathable for all-weather protection.",
+        "category": "men's clothing",
+        "image": "https://motocentral.in/cdn/shop/products/1_1024x1024_2x_4769e3e2-cf56-4cf5-86b0-0a6a6e4843e0.jpg?v=1645259134",
+        "rating": {
+            "rate": 4.7,
+            "count": 300
+        }
+    },
+    {
+        "id": 19,
+        "title": "FashionFusion Women's Statement Necklace",
+        "price": 19.99,
+        "description": "Make a statement with the FashionFusion Women's Statement Necklace. Eye-catching design, versatile style, and perfect for any occasion.",
+        "category": "women's accessories",
+        "image": "https://www.jewelove.in/cdn/shop/files/jewelove-japanese-platinum-necklace-chain-for-women-jl-pt-ch-194-37444771905777.jpg?v=1682593571",
+        "rating": {
+            "rate": 4.3,
+            "count": 200
+        }
+    },
+    {
+        "id": 20,
+        "title": "DANVOUY Women's T Shirt Casual Cotton Short",
+        "price": 12.99,
+        "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+        "category": "women's clothing",
+        "image": "https://images-cdn.ubuy.co.in/634e34d5d3d6d67bcf5e0b38-hollister-mens-tee-graphic-t-shirt-v.jpg",
+        "rating": {
+            "rate": 3.6,
+            "count": 145
+        }
+    },
+    {
+        "id": 21,
+        "title": "TrendyTech Wireless Charging Earbuds",
+        "price": 79.99,
+        "description": "Cut the cord and elevate your listening experience with TrendyTech Wireless Charging Earbuds. Seamless connectivity, immersive sound, and convenient wireless charging case.",
+        "category": "electronics",
+        "image": "https://m.media-amazon.com/images/I/612GBY6bxRL.jpg",
+        "rating": {
+            "rate": 4.6,
+            "count": 350
+        }
+    },
+    {
+        "id": 22,
+        "title": "ClassicComfort Men's Crewneck Sweater",
+        "price": 49.99,
+        "description": "Stay warm and stylish with the ClassicComfort Men's Crewneck Sweater. Soft fabric, classic design, and perfect for layering in cooler weather.",
+        "category": "men's clothing",
+        "image": "https://imagescdn.thecollective.in/img/app/product/8/811137-9663325.jpg",
+        "rating": {
+            "rate": 4.2,
+            "count": 280
+        }
+    },
+    {
+        "id": 23,
+        "title": "UrbanStyle Women's Leather Handbag",
+        "price": 39.99,
+        "description": "Add a touch of sophistication to your ensemble with the UrbanStyle Women's Leather Handbag. Premium leather, spacious interior, and versatile design.",
+        "category": "women's accessories",
+        "image": "https://images-cdn.ubuy.co.in/6453e1fe65969779f45c5b34-kattee-women-s-soft-leather-hobo-bag-for.jpg",
+        "rating": {
+            "rate": 4.4,
+            "count": 320
+        }
+    },
+    {
+        "id": 24,
+        "title": "AdventureTech Outdoor Backpack",
+        "price": 59.99,
+        "description": "Embark on your next adventure with the AdventureTech Outdoor Backpack. Durable construction, ample storage, and comfortable to carry on long hikes or travels.",
+        "category": "accessories",
+        "image": "https://www.yourprint.in/new-admin-ajax.php?action=resize_outer_image&cfcache=all&url=med-s3/yP-mplace/Bags/Back_Packs/YPB08Q48GR44_1.jpg&resizeTo=600",
+        "rating": {
+            "rate": 4.8,
+            "count": 400
+        }
+    },
+    {
+        "id": 25,
+        "title": "ActiveLife Men's Compression Shorts",
+        "price": 19.99,
+        "description": "Maximize your performance with ActiveLife Men's Compression Shorts. Compression fit, moisture-wicking fabric, and supportive design for enhanced comfort during workouts.",
+        "category": "men's clothing",
+        "image": "https://sportsoul.in/cdn/shop/products/PANT3_ColorwayACopy5_8_79b0cf94-b988-48d3-9b99-4a36ba283743_1024x1024.jpg?v=1678526682",
+        "rating": {
+            "rate": 4.5,
+            "count": 300
+        }
+    }
+]
