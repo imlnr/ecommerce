@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
+import { Box, Typography, IconButton, Grid } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import img1 from '../assets/D126119617_WLD-BAU-iQOO125G-DesignSIM_NEW_LAUNCH_tallhero_3000x1200_2._CB560849646_.jpg'
 import img2 from '../assets/Gaming-fest_HERO_3000x1200._CB560855689_.jpg'
@@ -59,7 +59,7 @@ const Carousel = () => {
             />
 
             {/* Caption text centered over the image */}
-            <Typography
+            {/* <Typography
                 variant="h6"
                 style={{
                     position: 'absolute',
@@ -74,7 +74,7 @@ const Carousel = () => {
                 }}
             >
                 {currentImage.caption}
-            </Typography>
+            </Typography> */}
 
             {/* Navigation buttons */}
             <IconButton
@@ -110,6 +110,30 @@ const Carousel = () => {
             >
                 <ChevronRight fontSize='large' />
             </IconButton>
+            {/* <Box> */}
+            <Grid sx={{ position: 'absolute', top: "50%", left: '0', zIndex: '1' }} container justifyContent={'space-around'} columns={12}>
+                <Grid sx={{ backgroundColor: 'white' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
+                    <Grid border={'1px solid'} flexBasis={0} xs={12}>Pick up where you left off</Grid>
+                    {/* <Typography>Pick up where you left off</Typography> */}
+                    <Grid border={'1px solid'} item xs={4}></Grid>
+                    <Grid border={'1px solid'} item xs={4}>item</Grid>
+                    <Grid border={'1px solid'} item xs={4}>item</Grid>
+                    <Grid border={'1px solid'} item xs={4}>item</Grid>
+                </Grid>
+                <Grid sx={{ backgroundColor: 'white' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                </Grid>
+                <Grid sx={{ backgroundColor: 'white' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                </Grid>
+            </Grid>
+            {/* </Box> */}
         </Box>
     );
 };
