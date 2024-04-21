@@ -5,6 +5,9 @@ import img1 from '../assets/D126119617_WLD-BAU-iQOO125G-DesignSIM_NEW_LAUNCH_tal
 import img2 from '../assets/Gaming-fest_HERO_3000x1200._CB560855689_.jpg'
 import img3 from '../assets/Hot_Summer_Sale_Hero_3000X1200_Ref_Fallback_2x._CB560893869_.jpg'
 
+
+const gridData = [{ url: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg", text: 'Bracelet' }, { url: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg", text: "Hard Drive" }, { url: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg", text: "Jacket" }, { url: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg", text: "Monitor" }];
+
 const imageData = [
     {
         src: img1,
@@ -111,26 +114,42 @@ const Carousel = () => {
                 <ChevronRight fontSize='large' />
             </IconButton>
             {/* <Box> */}
-            <Grid sx={{ position: 'absolute', top: "50%", left: '0', zIndex: '1' }} container justifyContent={'space-around'} columns={12}>
-                <Grid sx={{ backgroundColor: 'white' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
-                    <Grid border={'1px solid'} flexBasis={0} xs={12}>Pick up where you left off</Grid>
-                    {/* <Typography>Pick up where you left off</Typography> */}
-                    <Grid border={'1px solid'} item xs={4}></Grid>
-                    <Grid border={'1px solid'} item xs={4}>item</Grid>
-                    <Grid border={'1px solid'} item xs={4}>item</Grid>
-                    <Grid border={'1px solid'} item xs={4}>item</Grid>
+            <Grid sx={{ position: 'absolute', top: "55%", left: '0', zIndex: '1' }} container justifyContent={'space-around'} columns={12}>
+                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
+                    {/* <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid> */}
+                    {gridData.map((ele) => (
+                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
+                            <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
+                            <Typography variant='paragraph' justifySelf={'end'}>{ele.text}</Typography>
+                        </Grid>
+                    ))}
                 </Grid>
-                <Grid sx={{ backgroundColor: 'white' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
+                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
+                    {/* <Grid border={'1px solid'} xs={4}>item</Grid>
                     <Grid border={'1px solid'} xs={4}>item</Grid>
                     <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid> */}
+                    {gridData.map((ele) => (
+                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
+                            <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
+                            <Typography variant='paragraph' justifySelf={'end'}>{ele.text}</Typography>
+                        </Grid>
+                    ))}
                 </Grid>
-                <Grid sx={{ backgroundColor: 'white' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
+                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
+                    {/* <Grid border={'1px solid'} xs={4}>item</Grid>
                     <Grid border={'1px solid'} xs={4}>item</Grid>
                     <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
+                    <Grid border={'1px solid'} xs={4}>item</Grid> */}
+                    {gridData.map((ele) => (
+                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
+                            <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
+                            <Typography variant='paragraph' justifySelf={'end'}>{ele.text}</Typography>
+                        </Grid>
+                    ))}
                 </Grid>
             </Grid>
             {/* </Box> */}
