@@ -5,6 +5,7 @@ import { store } from './redux/store'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider, createTheme } from '@mui/material'
 import MainRoutes from './AllRoutes/MainRoutes'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <ThemeProvider theme={theme}>
             <Navbar />
             <MainRoutes />
+            <Footer/>
           </ThemeProvider>
       </BrowserRouter>
         </Provider>
