@@ -1,10 +1,16 @@
-import { Button, Grid, Typography } from '@mui/material'
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Footer = () => {
+    const [age, setAge] = useState('');
+
+    const handleChange = (event) => {
+        setAge(event.target.value);
+    };
+
     return (
-        <Box width={"100%"} sx={{ backgroundColor: "#232f3e" }}>
+        <Box width={"100%"} sx={{ backgroundColor: "#232f3e", color: "white" }}>
             <Button sx={{ backgroundColor: "#37475a", color: 'white' }} fullWidth size='large'>Back to top</Button>
             <Grid marginTop={"10px"} container columns={12} justifyContent={'center'} gap={'3%'} color={'white'}>
                 <Grid sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }} xs={1.5}>
@@ -41,6 +47,28 @@ const Footer = () => {
                     <Typography fontSize={'small'}>Help</Typography>
                 </Grid>
             </Grid>
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap:"3%" ,borderTop: "1px solid grey", borderBottom: "1px solid grey", height: "100px" }}>
+                <Typography>AMIJAAN</Typography>
+                    <FormControl sx={{borderColor:"white", m: 1, minWidth: 130 }}>
+                        <InputLabel id="demo-simple-select-autowidth-label">Language</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-autowidth-label"
+                            id="demo-simple-select-autowidth"
+                            value={age}
+                            onChange={handleChange}
+                            autoWidth
+                            label="Age"
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Spanish</MenuItem>
+                            <MenuItem value={21}>Hindi</MenuItem>
+                            <MenuItem value={22}>Telugu</MenuItem>
+                            <MenuItem value={"tamil"}>Tamil</MenuItem>
+                        </Select>
+                    </FormControl>
+            </Box>
         </Box>
     )
 }

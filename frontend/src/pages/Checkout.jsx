@@ -29,6 +29,7 @@ import InfoMobile from './InfoMobile';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 import ToggleColorMode from './ToggleColorMode';
+import { useLocation } from 'react-router-dom';
 
 function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
     return (
@@ -97,12 +98,13 @@ function getStepContent(step) {
 }
 
 export default function Checkout() {
+    const location = useLocation();
     const [mode, setMode] = React.useState('light');
     const [showCustomTheme, setShowCustomTheme] = React.useState(true);
     const checkoutTheme = createTheme(getCheckoutTheme(mode));
     const defaultTheme = createTheme({ palette: { mode } });
     const [activeStep, setActiveStep] = React.useState(0);
-
+    const {count} = location.state || 0;
     const toggleColorMode = () => {
         setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
     };

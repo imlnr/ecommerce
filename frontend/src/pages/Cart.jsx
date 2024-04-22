@@ -60,7 +60,7 @@ const Cart = () => {
             <FormGroup>
               <FormControlLabel control={<Checkbox />} label="This order contains a gift" />
             </FormGroup>
-            <Button onClick={() => navigate('/checkout')} fullWidth variant='contained'>Proceed to Buy</Button>
+            <Button onClick={() => navigate('/checkout', { state: { count: total } })} fullWidth variant='contained'>Proceed to Buy</Button>
             <Accordion>
               <AccordionSummary
                 expandIcon={<ArrowDropDownIcon />}
