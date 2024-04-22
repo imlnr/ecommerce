@@ -8,8 +8,8 @@ import img4 from '../assets/realme-narzo.jpg'
 
 
 const gridData = [{ url: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg", text: 'Bracelet' }, { url: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg", text: "Hard Drive" }, { url: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg", text: "Jacket" }, { url: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg", text: "Monitor" }];
-const gridData2 = [{url:"https://www.reliancedigital.in/medias/JBL-GO-Essential-Bluetooth-Speaker-493711858-i-2-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w3MDYzN3xpbWFnZS9qcGVnfGltYWdlcy9oOTUvaDJlLzk5OTMwNjI4NzUxNjYuanBnfGZjYWNkYjBjMDAyNmFmMTNiYzY1YWYyMGU5ZjQ5YjA2ZTViMmU2OTYwZWY4ZTQ5YmM1OGRjNWY0ODc4NDYxNTA",text:"jbl speaker"},{url:"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MT5J3ref_VW_34FR+watch-49-titanium-ultra2_VW_34FR+watch-face-49-alpine-ultra2_VW_34FR_GEO_IN?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1694507270905",text:"apple Watch"},{url:"https://www.jiomart.com/images/product/original/rvh3q3dfsc/gaming-mouse-with-6-buttons-wired-optical-mouse-with-rgb-lights-for-laptops-desktop-computer-product-images-orvh3q3dfsc-p595275392-0-202211121918.jpg?im=Resize=(420,420)",text:"rgb mouse"},{url:"https://m.media-amazon.com/images/I/612GBY6bxRL.jpg",text:"earbuds"}]
-const gridData3 = [{url:"",text:""},{url:"",text:""},{url:"",text:""},{url:"",text:""}]
+const gridData2 = [{ url: "https://www.reliancedigital.in/medias/JBL-GO-Essential-Bluetooth-Speaker-493711858-i-2-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w3MDYzN3xpbWFnZS9qcGVnfGltYWdlcy9oOTUvaDJlLzk5OTMwNjI4NzUxNjYuanBnfGZjYWNkYjBjMDAyNmFmMTNiYzY1YWYyMGU5ZjQ5YjA2ZTViMmU2OTYwZWY4ZTQ5YmM1OGRjNWY0ODc4NDYxNTA", text: "jbl speaker" }, { url: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MT5J3ref_VW_34FR+watch-49-titanium-ultra2_VW_34FR+watch-face-49-alpine-ultra2_VW_34FR_GEO_IN?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1694507270905", text: "apple Watch" }, { url: "https://www.jiomart.com/images/product/original/rvh3q3dfsc/gaming-mouse-with-6-buttons-wired-optical-mouse-with-rgb-lights-for-laptops-desktop-computer-product-images-orvh3q3dfsc-p595275392-0-202211121918.jpg?im=Resize=(420,420)", text: "rgb mouse" }, { url: "https://m.media-amazon.com/images/I/612GBY6bxRL.jpg", text: "earbuds" }]
+const gridData3 = [{ url: "", text: "" }, { url: "", text: "" }, { url: "", text: "" }, { url: "", text: "" }]
 
 const imageData = [
     {
@@ -129,7 +129,7 @@ const Carousel = () => {
                     <Grid border={'1px solid'} xs={4}>item</Grid>
                     <Grid border={'1px solid'} xs={4}>item</Grid> */}
                     {gridData.map((ele) => (
-                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
+                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
                             <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
                             <Typography variant='paragraph' justifySelf={'end'}>{ele.text}</Typography>
                         </Grid>
@@ -141,7 +141,7 @@ const Carousel = () => {
                     <Grid border={'1px solid'} xs={4}>item</Grid>
                     <Grid border={'1px solid'} xs={4}>item</Grid> */}
                     {gridData2.map((ele) => (
-                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
+                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
                             <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
                             <Typography variant='paragraph' justifySelf={'end'}>{ele.text}</Typography>
                         </Grid>
@@ -153,7 +153,7 @@ const Carousel = () => {
                     <Grid border={'1px solid'} xs={4}>item</Grid>
                     <Grid border={'1px solid'} xs={4}>item</Grid> */}
                     {gridData.map((ele) => (
-                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
+                        <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
                             <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
                             <Typography variant='paragraph' justifySelf={'end'}>{ele.text}</Typography>
                         </Grid>
