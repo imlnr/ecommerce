@@ -16,8 +16,6 @@ prodRouter.get('/', async (req, res) => {
     try {
         const { category, sortBy, sortOrder } = req.query;
         let sortCriteria = {};
-
-        // Set default sort order to ascending
         let sortOrderValue = 1;
 
         if (sortOrder && sortOrder.toLowerCase() === 'desc') {
