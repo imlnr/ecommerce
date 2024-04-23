@@ -2,19 +2,49 @@ const express = require('express');
 const { ProductModel } = require('../models/products.model');
 const { auth } = require('../middlewares/auth.middleware');
 const prodRouter = express.Router();
+// prodRouter.get('/', async (req, res) => {
+//     try {
+//         const products = await ProductModel.find();
+//         res.json(products);
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// });
+
+
 prodRouter.get('/', async (req, res) => {
     try {
-        const products = await ProductModel.find();
+        const { category, sortBy, sortOrder } = req.query;
+        let sortCriteria = {};
+
+        // Set default sort order to ascending
+        let sortOrderValue = 1;
+
+        if (sortOrder && sortOrder.toLowerCase() === 'desc') {
+            sortOrderValue = -1; 
+        }
+
+        if (sortBy === 'price') {
+            sortCriteria = { price: sortOrderValue };
+        } else if (sortBy === 'rating') {
+            sortCriteria = { 'rating.rate': sortOrderValue };
+        }
+
+        let query = category ? { category } : {};
+
+        const products = await ProductModel.find(query).sort(sortCriteria);
+
         res.json(products);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
 
+
 prodRouter.get('/:id', async (req, res) => {
     const id = req.params.id;
     try {
-        const product = await ProductModel.findById({_id:id});
+        const product = await ProductModel.findById({ _id: id });
         if (!product) {
             return res.status(404).json({ error: 'product not found' });
         }
@@ -63,7 +93,7 @@ prodRouter.delete('/:id', auth, async (req, res) => {
         if (!isthere) {
             return res.status(404).json({ "error": "Product not found" });
         }
-        await ProductModel.findByIdAndDelete({_id:id});
+        await ProductModel.findByIdAndDelete({ _id: id });
         res.status(200).json({ "message": "Product deleted successfully" });
     } catch (error) {
         res.status(400).json({ message: error.message });
