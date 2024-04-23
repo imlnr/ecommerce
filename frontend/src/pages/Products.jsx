@@ -14,13 +14,11 @@ const Products = () => {
     dispatch(Get_Products());
   }, [dispatch]);
 
-  console.log(products);
+  // console.log(products);
   const loading = useSelector(state => state.isLoading);
 
   return (
     <>
-      {
-        loading ? <Box sx={{ minWidth: '100vw', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Loading /></Box> :
           <Box width={"100%"} display={'flex'} alignItems={'center'} justifyContent={'center'} >
             <Grid padding={"2%"} container spacing={2}>
               {products.map((prod, key) => (
@@ -30,7 +28,9 @@ const Products = () => {
               ))}
             </Grid>
           </Box>
-      }
+      {/* {
+        loading ? <Box sx={{ minWidth: '100vw', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Loading /></Box> :
+      } */}
     </>
   );
 };

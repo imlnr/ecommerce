@@ -12,7 +12,7 @@ const Footer = () => {
     return (
         <Box width={"100%"} sx={{ backgroundColor: "#232f3e", color: "white" }}>
             <Button sx={{ backgroundColor: "#37475a", color: 'white' }} fullWidth size='large'>Back to top</Button>
-            <Grid marginTop={"10px"} container columns={12} justifyContent={'center'} gap={'3%'} color={'white'}>
+            <Grid paddingY={"50px"} container columns={12} justifyContent={'center'} gap={'3%'} color={'white'}>
                 <Grid sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }} xs={1.5}>
                     <Typography variant='h6' fontSize={'large'}>Get to Know Us</Typography>
                     <Typography fontSize={'small'}>About Us</Typography>
@@ -47,27 +47,48 @@ const Footer = () => {
                     <Typography fontSize={'small'}>Help</Typography>
                 </Grid>
             </Grid>
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap:"3%" ,borderTop: "1px solid grey", borderBottom: "1px solid grey", height: "100px" }}>
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2%", borderTop: "1px solid grey", borderBottom: "1px solid grey", height: "100px" }}>
                 <Typography>AMIJAAN</Typography>
-                    <FormControl sx={{borderColor:"white", m: 1, minWidth: 130 }}>
-                        <InputLabel id="demo-simple-select-autowidth-label">Language</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-autowidth-label"
-                            id="demo-simple-select-autowidth"
-                            value={age}
-                            onChange={handleChange}
-                            autoWidth
-                            label="Age"
-                        >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Spanish</MenuItem>
-                            <MenuItem value={21}>Hindi</MenuItem>
-                            <MenuItem value={22}>Telugu</MenuItem>
-                            <MenuItem value={"tamil"}>Tamil</MenuItem>
-                        </Select>
-                    </FormControl>
+                <FormControl sx={{ m: 1, minWidth: 130 }}>
+                    <InputLabel sx={{ color: 'white' }} id="demo-simple-select-autowidth-label">Language</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-autowidth-label"
+                        id="demo-simple-select-autowidth"
+                        value={age}
+                        onChange={handleChange}
+                        autoWidth
+                        label="Age"
+                        sx={{ color: 'white' }}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={10}>Spanish</MenuItem>
+                        <MenuItem value={21}>Hindi</MenuItem>
+                        <MenuItem value={22}>Telugu</MenuItem>
+                        <MenuItem value={"tamil"}>Tamil</MenuItem>
+                    </Select>
+                </FormControl>
+                <FormControl sx={{ color: "white", m: 1, minWidth: 110 }}>
+                    <InputLabel sx={{ color: 'white' }} id="demo-simple-select-autowidth-label">Country</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-autowidth-label"
+                        id="demo-simple-select-autowidth"
+                        value={age}
+                        onChange={handleChange}
+                        autoWidth
+                        label="Age"
+                        sx={{ color: 'white' }}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={10}>India</MenuItem>
+                        <MenuItem value={21}>Pakistan</MenuItem>
+                        <MenuItem value={22}>China</MenuItem>
+                        <MenuItem value={"tamil"}>USA</MenuItem>
+                    </Select>
+                </FormControl>
             </Box>
         </Box>
     )

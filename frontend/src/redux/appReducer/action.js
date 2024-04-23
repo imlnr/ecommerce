@@ -69,6 +69,7 @@ export const get_sign_up = (data,navigate) => {
 export const add_toCart = (prod) => {
     return async (dispatch) => {
         dispatch({ type: ADD_TO_CART_REQUEST })
+        console.log("clicking");
         try {
             const token = localStorage.getItem('token');
             const headers = {
