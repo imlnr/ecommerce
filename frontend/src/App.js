@@ -12,7 +12,7 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#1976d2',
+        main: '#131a22',
       },
       secondary: {
         main: '#3f51b5',
@@ -22,15 +22,15 @@ function App() {
 
   return (
     <>
-        <Provider store={store}>
-      <BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
           <ThemeProvider theme={theme}>
             <Navbar />
             <MainRoutes />
-            <Footer/>
+            <Footer />
           </ThemeProvider>
-      </BrowserRouter>
-        </Provider>
+        </BrowserRouter>
+      </Provider>
     </>
   )
 }

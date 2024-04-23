@@ -90,6 +90,9 @@ const Footer = () => {
                     </Select>
                 </FormControl>
             </Box>
+            <Box sx={{ backgroundColor: "primary.main", paddingY: "1%" }}>
+                <Typography textAlign={'center'}>2024-{new Date().getFullYear()} Developed by Laxminarayan with {"<3"}</Typography>
+            </Box>
         </Box>
     )
 }
