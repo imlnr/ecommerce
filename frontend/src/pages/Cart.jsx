@@ -35,9 +35,9 @@ const Cart = () => {
   return (
     <>
       {
-        loading ? <Box sx={{ position: 'absolute', minWidth: "100vw", top: '0', left: "0", zIndex: "1", minHeight: "100vh", display: "flex", alignItems: 'center', justifyContent: "center" }}><Loading /></Box> : ""
+        loading ? <Box sx={{ position: 'absolute', top: 'calc(50% - 70px)', left: "calc(50% - 50px)", zIndex: "1", }}><Loading /></Box> : ""
       }
-      <Box minHeight={"100vh"} paddingTop={"20px"} sx={{ backgroundColor: "#f8f9fa", filter: loading ? "blur(5px)" : 'none' }} >
+      <Box minHeight={"100vh"} position={'relative'} paddingTop={"20px"} sx={{ backgroundColor: "#f8f9fa", filter: loading ? "blur(5px)" : 'none' }} >
         <Grid width={"90%"} margin={"auto"} justifyContent={'space-between'} gap={3} container spacing={2} columns={16} flexGrow={1}>
           <Grid xs={11.5} sx={{ backgroundColor: 'white', borderRadius: '8px' }}>
             {/* <Box>xs=8</Box> */}

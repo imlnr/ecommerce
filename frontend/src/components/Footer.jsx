@@ -54,41 +54,6 @@ const Footer = () => {
                     <Typography fontSize={'small'}>Help</Typography>
                 </Grid>
             </Grid>
-            {/* <Grid paddingY={"50px"} container columns={{ xs: 12, sm: 6, md: 4, lg: 16 }} justifyContent={'center'} gap={'3%'} color={'white'}>
-                <Grid sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }} item xs={6} sm={3}>
-                    <Typography variant='h6' fontSize={'large'}>Get to Know Us</Typography>
-                    <Typography fontSize={'small'}>About Us</Typography>
-                    <Typography fontSize={'small'}>Careers</Typography>
-                    <Typography fontSize={'small'}>Press Releases</Typography>
-                    <Typography fontSize={'small'}>Amijaan Science</Typography>
-                </Grid>
-                <Grid sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }} item xs={6} sm={3}>
-                    <Typography variant='h6' fontSize={'large'}>Connect with Us</Typography>
-                    <Typography fontSize={'small'}>Facebook</Typography>
-                    <Typography fontSize={'small'}>Twitter</Typography>
-                    <Typography fontSize={'small'}>Instagram</Typography>
-                    <Typography fontSize={'small'}>Thread</Typography>
-                </Grid>
-                <Grid sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }} item xs={6} sm={3}>
-                    <Typography variant='h6' fontSize={'large'}>Make Money with Us</Typography>
-                    <Typography fontSize={'small'}>Sell on Amijaan</Typography>
-                    <Typography fontSize={'small'}>Sell under Amijaan Accelerator</Typography>
-                    <Typography fontSize={'small'}>Protect and Build Your Brand</Typography>
-                    <Typography fontSize={'small'}>Amijaan Global Selling</Typography>
-                    <Typography fontSize={'small'}>Become an Affiliate</Typography>
-                    <Typography fontSize={'small'}>Fulfillment by Amijaan</Typography>
-                    <Typography fontSize={'small'}>Advertise Your Products</Typography>
-                    <Typography fontSize={'small'}>Amijaan Pay on Merchants</Typography>
-                </Grid>
-                <Grid sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }} item xs={6} sm={3}>
-                    <Typography variant='h6' fontSize={'medium'}>Let Us Help You</Typography>
-                    <Typography fontSize={'small'}>Your Account</Typography>
-                    <Typography fontSize={'small'}>Return Center</Typography>
-                    <Typography fontSize={'small'}>100% Purchase Protection</Typography>
-                    <Typography fontSize={'small'}>Amijaan App Download</Typography>
-                    <Typography fontSize={'small'}>Help</Typography>
-                </Grid>
-            </Grid> */}
 
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2%", borderTop: "1px solid grey", borderBottom: "1px solid grey", paddingY: "1%" }}>
                 <Typography>AMIJAAN</Typography>

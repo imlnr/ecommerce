@@ -19,7 +19,7 @@ prodRouter.get('/', async (req, res) => {
         let sortOrderValue = 1;
 
         if (sortOrder && sortOrder.toLowerCase() === 'desc') {
-            sortOrderValue = -1; 
+            sortOrderValue = -1;
         }
 
         if (sortBy === 'price') {
