@@ -5,15 +5,15 @@ import Carousel from '../components/Carousel';
 import { Box } from '@mui/system';
 // import CarouselImage from '../components/Carousel'
 const Home = () => {
-  const dispatch  = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(get_cart_items());
   }, [dispatch])
   return (
-    <Box sx={{backgroundColor:'#e5e5e5'}} minHeight={'100vh'}>
-      <Carousel/>
+    <Box sx={{ backgroundColor: '#e5e5e5' }} minHeight={'100vh'}>
+      <Carousel />
     </Box>
-      
+
   )
 }
 

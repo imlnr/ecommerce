@@ -7,6 +7,7 @@ const initialState = {
     isError: false,
     wishlist: [],
     cart: [],
+    isAddToCartLoading: false,
     user: JSON.parse(localStorage.getItem('user')) || {}
 }
 
@@ -27,11 +28,11 @@ export const reducer = (state = initialState, action) => {
         case GET_PRODUCTS_FAILURE:
             return { ...state, isLoading: false, isError: false };
         case ADD_TO_CART_REQUEST:
-            return { ...state, isLoading: true, isError: false };
+            return { ...state, isAddToCartLoading: true, isError: false };
         case ADD_TO_CART_SUCCESS:
-            return { ...state, isLoading: false, cart: [...state.cart, action.payload] };
+            return { ...state, isAddToCartLoading: false, cart: [...state.cart, action.payload] };
         case ADD_TO_CART_FAILURE:
-            return { ...state, isLoading: false, isError: true };
+            return { ...state, isAddToCartLoading: false, isError: true };
         case GET_CART_REQUEST:
             return { ...state, isLoading: true, isError: false };
         case GET_CART_SUCCESS:

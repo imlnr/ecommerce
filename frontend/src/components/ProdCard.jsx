@@ -18,7 +18,7 @@ export default function ProdCard({ prod }) {
     const rat = prod.rating.rate;
     // console.log(prod._id);
     const dispatch = useDispatch();
-    const handle_cartadd = ()=>{
+    const handle_cartadd = () => {
         dispatch(add_toCart(prod));
     }
     return (
@@ -34,7 +34,7 @@ export default function ProdCard({ prod }) {
             }}
         >
             <CardMedia sx={{ display: "flex", justifyContent: 'center', alignItems: "center", alignSelf: 'center' }}>
-                <img src={prod.image} alt={prod.title} width={"85%"} height={"200px"} />
+                <img src={prod.image} alt={prod.title} width={"90%"} height={"200px"} />
             </CardMedia>
             <CardContent sx={{ paddingBottom: "0%" }}>
                 <Typography gutterBottom variant="paragraph" component="div">
@@ -52,7 +52,7 @@ export default function ProdCard({ prod }) {
                     />
                 </Typography>
             </CardContent>
-            <CardActions sx={{display:"flex",alignItems:'center',justifyContent:'space-between'}}>
+            <CardActions sx={{ display: "flex", alignItems: 'center', justifyContent: 'space-between' }}>
                 <IconButton onClick={() => setisclick(!isclick)} size='medium'>
                     <FavoriteIcon sx={isclick ? { fill: "red" } : {}} />
                 </IconButton>
