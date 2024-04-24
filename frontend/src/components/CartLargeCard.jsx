@@ -1,10 +1,8 @@
 import { Box, Card, CardActions, CardContent, Checkbox, IconButton, Rating, Typography } from '@mui/material'
-// import { flexbox } from '@mui/system';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-// import ShareIcon from '@mui/icons-material/Share';
 import Share from '@mui/icons-material/Share';
 import { useDispatch } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
@@ -17,7 +15,6 @@ const CartLargeCard = ({ cart }) => {
     console.log(cart.quantity);
     const dispatch = useDispatch();
     const [count, setcount] = useState(1);
-    // console.log(count);
     const handlecount = () => {
         if (count >= 2) {
             setcount(count - 1);
@@ -36,10 +33,9 @@ const CartLargeCard = ({ cart }) => {
             marginBottom: "1px",
             paddingY: "10px",
             height: "235px",
-            // paddingLeft:"1.5%"
         }}>
             <Checkbox sx={{ mr: "2%" }} />
-            <img width={"16%"} height={"90%"} src={cart.productData.image} alt="" />
+            <img height={"90%"} src={cart.productData.image} alt="" />
             <CardContent sx={{ display: 'flex', flexDirection: "column", justifyContent: "space-between", gap: "5px", alignSelf: 'flex-start', width: "100%" }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: "space-between" }} >
                     <Typography variant='h6'>{cart.productData.title}</Typography>
