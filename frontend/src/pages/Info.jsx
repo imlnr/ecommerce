@@ -5,6 +5,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
+import { useSelector } from 'react-redux';
 
 const products = [
   {
@@ -30,6 +31,8 @@ const products = [
 ];
 
 function Info({ totalPrice }) {
+  const cart = useSelector((state) => state.cart);
+  console.log(cart);
   return (
     <React.Fragment>
       <Typography variant="subtitle2" color="text.secondary">
@@ -39,15 +42,16 @@ function Info({ totalPrice }) {
         {totalPrice}
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
-          <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
+        {cart.map((product) => (
+          <ListItem key={product._id} sx={{ py: 1, px: 0 }}>
+            {console.log(product)}
             <ListItemText
               sx={{ mr: 2 }}
-              primary={product.name}
-              secondary={product.desc}
+              primary={product.productData.title}
+            // secondary={product.desc}
             />
             <Typography variant="body1" fontWeight="medium">
-              {product.price}
+              {product.productData.price}
             </Typography>
           </ListItem>
         ))}

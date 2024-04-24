@@ -29,7 +29,7 @@ import InfoMobile from './InfoMobile';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 import ToggleColorMode from './ToggleColorMode';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
     return (
@@ -104,7 +104,7 @@ export default function Checkout() {
     const checkoutTheme = createTheme(getCheckoutTheme(mode));
     const defaultTheme = createTheme({ palette: { mode } });
     const [activeStep, setActiveStep] = React.useState(0);
-    const {count} = location.state || 0;
+    const { count } = location.state || 0;
     const toggleColorMode = () => {
         setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
     };
@@ -150,21 +150,23 @@ export default function Checkout() {
                             height: 150,
                         }}
                     >
-                        <Button
-                            startIcon={<ArrowBackRoundedIcon />}
-                            component="a"
-                            href="/material-ui/getting-started/templates/landing-page/"
-                            sx={{ ml: '-8px' }}
-                        >
-                            Back to
-                            <img
-                                src={
-                                    'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
-                                }
-                                style={logoStyle}
-                                alt="Sitemark's logo"
-                            />
-                        </Button>
+                        <Link to='/cart'>
+                            <Button
+                                startIcon={<ArrowBackRoundedIcon />}
+                                component="a"
+                                href="/material-ui/getting-started/templates/landing-page/"
+                                sx={{ ml: '-8px' }}
+                            >
+                                Back to
+                                <img
+                                    src={
+                                        'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
+                                    }
+                                    style={logoStyle}
+                                    alt="Sitemark's logo"
+                                />
+                            </Button>
+                        </Link>
                     </Box>
                     <Box
                         sx={{
@@ -211,22 +213,23 @@ export default function Checkout() {
                                 width: '100%',
                                 justifyContent: 'space-between',
                             }}
-                        >
-                            <Button
-                                startIcon={<ArrowBackRoundedIcon />}
-                                component="a"
-                                href="/material-ui/getting-started/templates/landing-page/"
-                                sx={{ alignSelf: 'start' }}
-                            >
-                                Back to
-                                <img
-                                    src={
-                                        'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
-                                    }
-                                    style={logoStyle}
-                                    alt="Sitemark's logo"
-                                />
-                            </Button>
+                        ><Link to='/cart'>
+                                <Button
+                                    startIcon={<ArrowBackRoundedIcon />}
+                                    component="a"
+                                    // href="/material-ui/getting-started/templates/landing-page/"
+                                    sx={{ alignSelf: 'start' }}
+                                >
+                                    Back to
+                                    <img
+                                        src={
+                                            'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
+                                        }
+                                        style={logoStyle}
+                                        alt="Sitemark's logo"
+                                    />
+                                </Button>
+                            </Link>
                             <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
                         </Box>
                         <Box
