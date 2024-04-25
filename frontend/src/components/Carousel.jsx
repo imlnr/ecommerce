@@ -66,28 +66,8 @@ const Carousel = () => {
             <img
                 src={currentImage.src}
                 alt={currentImage.alt}
-                style={{ width: '100%', height: 'auto' }}
+                style={{ width: '100%', minHeight:"200px" }}
             />
-
-            {/* Caption text centered over the image */}
-            {/* <Typography
-                variant="h6"
-                style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    color: 'white',
-                    textAlign: 'center',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                    padding: '5px',
-                    borderRadius: '5px'
-                }}
-            >
-                {currentImage.caption}
-            </Typography> */}
-
-            {/* Navigation buttons */}
             <IconButton
                 sx={{ color: 'white' }}
                 variant="contained"
@@ -122,12 +102,8 @@ const Carousel = () => {
                 <ChevronRight fontSize='large' />
             </IconButton>
             {/* <Box> */}
-            <Grid sx={{ position: 'absolute', top: "55%", left: '0', zIndex: '1' }} container justifyContent={'space-around'} columns={12}>
-                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
-                    {/* <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid> */}
+            <Grid sx={{ position: {xs:"",md:'absolute'}, top: {xs:"",md:'55%'}, left: {xs:"",md:'0'}, zIndex: {xs:"",md:'1'} }} container justifyContent={'space-around'} columns={12}>
+                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={12} md={3} gap={'4%'} justifyContent={'center'}>
                     {gridData.map((ele) => (
                         <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
                             <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
@@ -135,11 +111,7 @@ const Carousel = () => {
                         </Grid>
                     ))}
                 </Grid>
-                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
-                    {/* <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid> */}
+                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={12} md={3} gap={'4%'} justifyContent={'center'}>
                     {gridData2.map((ele) => (
                         <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
                             <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
@@ -147,11 +119,7 @@ const Carousel = () => {
                         </Grid>
                     ))}
                 </Grid>
-                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={3} gap={'4%'} justifyContent={'center'}>
-                    {/* <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid>
-                    <Grid border={'1px solid'} xs={4}>item</Grid> */}
+                <Grid sx={{ backgroundColor: 'white', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} container paddingY={'10px'} borderRadius={'8px'} columns={12} xs={12} md={3} gap={'4%'} justifyContent={'center'}>
                     {gridData.map((ele) => (
                         <Grid paddingY={"2%"} marginY={'5px'} borderRadius={'5px'} key={ele.url} sx={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', display: 'flex', justifyContent: "space-around", alignItems: "center", flexDirection: "column" }} item xs={4}>
                             <img width={"100px"} height={'120px'} src={ele.url} alt={ele.text} />
