@@ -29,6 +29,16 @@ AMIJAAN is a MUI Based and React ecommerce platform with essential commerce feat
 </p>
 
 
+# Login
+<p align="center">
+<img alt="Amijaan" width="950" src="https://github.com/imlnr/ecommerce/assets/82680213/1354cdec-47b1-4c08-8274-71ba4a9705aa"/>
+</p>
+
+
+# Signup
+<p align="center">
+<img alt="Amijaan" width="950" src="https://github.com/imlnr/ecommerce/assets/82680213/05e75780-84ed-42cc-b523-304c6b2fffe0"/>
+</p>
 
 
 # Getting Started with Create React App
@@ -103,14 +113,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-
-# Login
-<p align="center">
-<img alt="Amijaan" width="950" src="https://github.com/imlnr/ecommerce/assets/82680213/1354cdec-47b1-4c08-8274-71ba4a9705aa"/>
-</p>
-
-
-# Signup
-<p align="center">
-<img alt="Amijaan" width="950" src="https://github.com/imlnr/ecommerce/assets/82680213/05e75780-84ed-42cc-b523-304c6b2fffe0"/>
-</p>
