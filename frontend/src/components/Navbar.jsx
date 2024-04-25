@@ -312,7 +312,7 @@ function Navbar() {
                             textDecoration: 'none',
                         }}
                     >
-                        AMIJAAN
+                        AMAZON
                     </Typography>
                     <Box sx={{ flexGrow: 1 }}>
                         <SearchBar />
@@ -325,11 +325,14 @@ function Navbar() {
                         ))}
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Badge badgeContent={cart.length} color='secondary' sx={{ mr: 2 }}>
+                    <Badge badgeContent={cart.length === 0 ? "0" : cart.length} color='secondary' sx={{ cursor: "pointer",mr: 2 }} onClick={() => navigate('/cart')}>
+                             <ShoppingCartIcon />
+                         </Badge>
+                        {/* <Badge badgeContent={cart.length} color='secondary' sx={{ mr: 2 }}>
                             <IconButton color="inherit" onClick={() => navigate('/cart')}>
                                 <ShoppingCartIcon />
                             </IconButton>
-                        </Badge>
+                        </Badge> */}
                         {logged ?
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu}>
