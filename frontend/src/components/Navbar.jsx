@@ -304,7 +304,7 @@ function Navbar() {
                         sx={{
                             mr: 2,
                             cursor: 'pointer',
-                            flexGrow: 1,
+                            flexGrow: 0,
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -329,13 +329,6 @@ function Navbar() {
                         </Box>
                     <Box sx={{ flexGrow: 1 }}>
                         <SearchBar />
-                    </Box>
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Link key={page.type} to={page.link} style={{ textDecoration: "none", color: 'inherit' }}>
-                                <Button sx={{ mx: 1 }}>{page.type}</Button>
-                            </Link>
-                        ))}
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Badge badgeContent={cart.length === 0 ? "0" : cart.length} color='secondary' sx={{ cursor: "pointer",mr: 2 }} onClick={() => navigate('/cart')}>
@@ -399,13 +392,13 @@ function Navbar() {
                     display: { xs: 'block', md: 'none' },
                 }}
             >
-                {pages.map((page) => (
+                {/* {pages.map((page) => (
                     <MenuItem key={page.type} onClick={handleCloseNavMenu}>
                         <Link to={page.link} style={{ textDecoration: "none" }}>
                             <Typography>{page.type}</Typography>
                         </Link>
                     </MenuItem>
-                ))}
+                ))} */}
                 <MenuItem onClick={handleCloseNavMenu}>
                     <Link to="/signup" style={{ textDecoration: "none" }}>
                         <Typography>Signup</Typography>

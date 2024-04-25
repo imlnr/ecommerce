@@ -5,6 +5,8 @@ import Grid from '@mui/material/Grid';
 import { Get_Products } from '../redux/appReducer/action';
 import ProdCard from '../components/ProdCard';
 import Loading from '../components/Loading';
+import { Pagination, autocompleteClasses } from '@mui/material';
+import { display } from '@mui/system';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ const Products = () => {
           <Box width={'100%'} height={'calc(100vh - 50px)'} display={'flex'} justifyContent={'center'} alignItems={"center"}>
             <Loading />
           </Box> :
+          <>
           <Box width={"100%"} display={'flex'} alignItems={'center'} justifyContent={'center'} >
             <Grid padding={"2%"} container spacing={2}>
               {products.map((prod, key) => (
@@ -33,6 +36,10 @@ const Products = () => {
               ))}
             </Grid>
           </Box>
+          <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",paddingY:"1%"}}>
+          <Pagination size='large' count={10}></Pagination>
+          </Box>
+          </>
       }
 
     </>

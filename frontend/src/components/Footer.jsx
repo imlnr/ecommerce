@@ -18,7 +18,7 @@ const Footer = () => {
 
     return (
         <Box width={"100%"} sx={{ backgroundColor: "#232f3e", color: "white" }}>
-            <Button onClick={() => scrollToTop()} sx={{ backgroundColor: "#37475a", color: 'white' }} fullWidth size='large'>Back to top</Button>
+            <Button onClick={() => scrollToTop()} sx={{ backgroundColor: "primary.main", color: 'white' }} fullWidth size='large'>Back to top</Button>
             <Grid paddingY={"50px"} container columns={12} justifyContent={'center'} gap={'3%'} color={'white'}>
                 <Grid sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }} xs={1.5}>
                     <Typography variant='h6' fontSize={'large'}>Get to Know Us</Typography>
