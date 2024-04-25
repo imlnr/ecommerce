@@ -23,10 +23,9 @@ AMIJAAN is a MUI Based and React ecommerce platform with essential commerce feat
 </p>
 
 
-
 # Cart
 <p align="center">
-<img alt="Amijaan" width="950" src="https://github.com/imlnr/ecommerce/assets/82680213/92fb0517-e710-450d-a871-fee1ce7ef2d3"/>
+<img alt="Amijaan" width="950" src="https://github.com/imlnr/ecommerce/assets/82680213/6e803a6d-373d-422d-a683-4d0522072b49"/>
 </p>
 
 
