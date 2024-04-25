@@ -392,13 +392,13 @@ function Navbar() {
                     display: { xs: 'block', md: 'none' },
                 }}
             >
-                {/* {pages.map((page) => (
+                {pages.map((page) => (
                     <MenuItem key={page.type} onClick={handleCloseNavMenu}>
                         <Link to={page.link} style={{ textDecoration: "none" }}>
                             <Typography>{page.type}</Typography>
                         </Link>
                     </MenuItem>
-                ))} */}
+                ))}
                 <MenuItem onClick={handleCloseNavMenu}>
                     <Link to="/signup" style={{ textDecoration: "none" }}>
                         <Typography>Signup</Typography>
