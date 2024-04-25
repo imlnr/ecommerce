@@ -182,9 +182,41 @@ const prodRouter = express.Router();
  *       '500':
  *         description: Internal server error
  */
+
+
+// prodRouter.get('/', async (req, res) => {
+//     try {
+//         const { title, category, sortBy, sortOrder } = req.query;
+//         let sortCriteria = {};
+//         let sortOrderValue = 1;
+
+//         if (sortOrder && sortOrder.toLowerCase() === 'desc') {
+//             sortOrderValue = -1;
+//         }
+
+//         if (sortBy === 'price') {
+//             sortCriteria = { price: sortOrderValue };
+//         } else if (sortBy === 'rating') {
+//             sortCriteria = { 'rating.rate': sortOrderValue };
+//         }
+
+//         let query = {};
+
+//         if (category) {
+//             query = { category: { $regex: category, $options: 'i' } };
+//         }
+
+//         const products = await ProductModel.find(query).sort(sortCriteria);
+
+//         res.json(products);
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// });
+
 prodRouter.get('/', async (req, res) => {
     try {
-        const { category, sortBy, sortOrder } = req.query;
+        const { title, category, sortBy, sortOrder } = req.query;
         let sortCriteria = {};
         let sortOrderValue = 1;
 
@@ -198,7 +230,20 @@ prodRouter.get('/', async (req, res) => {
             sortCriteria = { 'rating.rate': sortOrderValue };
         }
 
-        let query = category ? { category } : {};
+        let query = {};
+
+        if (title && category) {
+            query = {
+                $or: [
+                    { title: { $regex: title, $options: 'i' } },
+                    { category: { $regex: category, $options: 'i' } }
+                ]
+            };
+        } else if (title) {
+            query = { title: { $regex: title, $options: 'i' } };
+        } else if (category) {
+            query = { category: { $regex: category, $options: 'i' } };
+        }
 
         const products = await ProductModel.find(query).sort(sortCriteria);
 
@@ -207,6 +252,8 @@ prodRouter.get('/', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+
 
 /**
  * @swagger
