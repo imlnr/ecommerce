@@ -5,8 +5,8 @@ import Grid from '@mui/material/Grid';
 import { Get_Products } from '../redux/appReducer/action';
 import ProdCard from '../components/ProdCard';
 import Loading from '../components/Loading';
-import { Pagination, autocompleteClasses } from '@mui/material';
-import { display } from '@mui/system';
+import { Pagination } from '@mui/material';
+// import { display } from '@mui/system';
 
 const Products = () => {
   const dispatch = useDispatch();
