@@ -125,14 +125,16 @@ const Cart = () => {
     <>
       {loading && <Box sx={{ position: 'absolute', top: 'calc(50% - 70px)', left: "calc(50% - 50px)", zIndex: "1" }}><Loading /></Box>}
       <Box minHeight={"100vh"} position={'relative'} paddingTop={"20px"} sx={{ backgroundColor: "#f8f9fa", filter: loading ? "blur(5px)" : 'none' }}>
-        <Grid container spacing={isSmallScreen ? 1 : 2}>
+        <Grid container paddingX={isSmallScreen?"1%":"3%"} spacing={isSmallScreen ? 1 : 2}>
           <Grid item xs={12} sm={8}>
             <Box sx={{ backgroundColor: 'white', borderRadius: '8px', padding: '20px' }}>
               <Typography variant='h4'>Shopping Cart</Typography>
+              <Box sx={{display:"flex",justifyContent:"space-between"}}>
               <Typography>
                 Deselect All Items
               </Typography>
-              <Typography>Price</Typography>
+              <Typography display={isSmallScreen?"none":'block'}>Price</Typography>
+              </Box>
               {cart && cart.map((ele) => (
                 <CartLargeCard key={ele._id} cart={ele} />
               ))}
@@ -145,7 +147,7 @@ const Cart = () => {
               <FormGroup>
                 <FormControlLabel control={<Checkbox />} label="This order contains a gift" />
               </FormGroup>
-              <Button onClick={() => navigate('/checkout', { state: { count: total } })} fullWidth variant='contained'>Proceed to Buy</Button>
+              <Button sx={{marginBottom:"10px"}} onClick={() => navigate('/checkout', { state: { count: total } })} fullWidth variant='contained'>Proceed to Buy</Button>
               <Accordion>
                 <AccordionSummary
                   expandIcon={<ArrowDropDownIcon />}

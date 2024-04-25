@@ -314,6 +314,19 @@ function Navbar() {
                     >
                         AMAZON
                     </Typography>
+                    <Box display={{xs:'none',md:'flex'}}>
+                             {pages.map((page) => (
+                                <Link to={page.link} style={{ textDecoration: "none", color: 'white' }}>
+                                    <Button
+                                        key={page.type}
+                                        onClick={handleCloseNavMenu}
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                    >
+                                        {page.type}
+                                    </Button>
+                                </Link>
+                            ))}
+                        </Box>
                     <Box sx={{ flexGrow: 1 }}>
                         <SearchBar />
                     </Box>
@@ -340,8 +353,8 @@ function Navbar() {
                                 </IconButton>
                             </Tooltip> :
                             <Box>
-                                <Button component={Link} to="/login" sx={{ mr: 1 }}>Login</Button>
-                                <Button component={Link} to="/signup">Signup</Button>
+                                <Button component={Link} to="/login" sx={{ mr: 1,color:"white" }}>Login</Button>
+                                <Button component={Link} to="/signup" sx={{color:"white"}}>Signup</Button>
                             </Box>
                         }
                         <Menu

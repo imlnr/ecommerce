@@ -11,23 +11,25 @@ import PrivateRoutes from './PrivateRoutes'
 import Profile from '../pages/Profile'
 import SingleProd from '../pages/SingleProd'
 import Checkout from '../pages/Checkout'
+import Footer from '../components/Footer'
 const MainRoutes = () => {
     return (
         <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<><Home /><Footer /></>} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/products' element={<Products />} />
-            <Route path='/blogs' element={<Blogs />} />
-            <Route path='/shops' element={<Shops />} />
+            <Route path='/products' element={<><Products /><Footer /></>} />
+            <Route path='/blogs' element={<><Blogs /><Footer /></>} />
+            <Route path='/shops' element={<><Shops /><Footer /></>} />
             <Route path='/cart' element={
                 <PrivateRoutes>
                     <Cart />
+                    <Footer />
                 </PrivateRoutes>
             } />
-            <Route path='/products/:id' element={<SingleProd />} />
+            <Route path='/products/:id' element={<><SingleProd /><Footer/></>} />
             <Route path='/profile' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
-            <Route path='/checkout' element={<Checkout/>}/>
+            <Route path='/checkout' element={<Checkout />} />
         </Routes>
     )
 }
