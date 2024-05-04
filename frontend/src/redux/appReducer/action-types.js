@@ -33,5 +33,5 @@ export const TOTAL_PAGES = "TOTAL_PAGES"
 export const CURRENT_PAGE = "CURRENT_PAGE"
 
 
-// export const url = 'https://ecommerce-eb1o.onrender.com'
-export const url = 'http://localhost:4500'
+export const url = 'https://ecommerce-eb1o.onrender.com'
+// export const url = 'http://localhost:4500'

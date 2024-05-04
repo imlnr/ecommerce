@@ -85,7 +85,7 @@ const Products = () => {
           </>
       }
       <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", paddingY: "1%" }}>
-        <Pagination page={parseInt(id)} onChange={handleChangePage} size='large' count={totalPages}></Pagination>
+        <Pagination color={'primary'} page={parseInt(id)} onChange={handleChangePage} size='large' count={totalPages}></Pagination>
       </Box>
     </>
   );
