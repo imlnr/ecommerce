@@ -185,9 +185,49 @@ const prodRouter = express.Router();
 
 
 
+// prodRouter.get('/', async (req, res) => {
+//     try {
+//         const { title, category, sortBy, sortOrder } = req.query;
+//         let sortCriteria = {};
+//         let sortOrderValue = 1;
+
+//         if (sortOrder && sortOrder.toLowerCase() === 'desc') {
+//             sortOrderValue = -1;
+//         }
+
+//         if (sortBy === 'price') {
+//             sortCriteria = { price: sortOrderValue };
+//         } else if (sortBy === 'rating') {
+//             sortCriteria = { 'rating.rate': sortOrderValue };
+//         }
+
+//         let query = {};
+
+//         if (title && category) {
+//             query = {
+//                 $or: [
+//                     { title: { $regex: title, $options: 'i' } },
+//                     { category: { $regex: category, $options: 'i' } }
+//                 ]
+//             };
+//         } else if (title) {
+//             query = { title: { $regex: title, $options: 'i' } };
+//         } else if (category) {
+//             query = { category: { $regex: category, $options: 'i' } };
+//         }
+
+//         const products = await ProductModel.find(query).sort(sortCriteria);
+
+//         res.json(products);
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// });
+
 prodRouter.get('/', async (req, res) => {
     try {
-        const { title, category, sortBy, sortOrder } = req.query;
+        const { title, category, sortBy, sortOrder, page } = req.query;
+        const perPage = 12;
         let sortCriteria = {};
         let sortOrderValue = 1;
 
@@ -216,13 +256,22 @@ prodRouter.get('/', async (req, res) => {
             query = { category: { $regex: category, $options: 'i' } };
         }
 
-        const products = await ProductModel.find(query).sort(sortCriteria);
+        const totalProductsCount = await ProductModel.countDocuments(query);
+        const totalPages = Math.ceil(totalProductsCount / perPage);
 
-        res.json(products);
+        const pageNumber = parseInt(page) || 1;
+        const skip = (pageNumber - 1) * perPage;
+        const products = await ProductModel.find(query)
+            .sort(sortCriteria)
+            .skip(skip)
+            .limit(perPage);
+
+        res.json({ products, totalPages });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
+
 
 
 

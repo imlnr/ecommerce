@@ -1,21 +1,23 @@
 import axios from 'axios';
-import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, url } from './action-types';
+import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, CURRENT_PAGE, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-  }
+}
 
-export const Get_Products = () => {
+export const Get_Products = (id) => {
+    // console.log(id);
     return async (dispatch) => {
         dispatch({ type: GET_PRODUCTS_REQUEST })
         try {
-            const res = await axios.get(`${url}/products/`)
+            const res = await axios.get(`${url}/products/`, { params: { page: id } })
             // console.log(res.data);
-            dispatch({ type: GET_PRODUCTS_SUCCESS, payload: shuffleArray(res.data) })
+            dispatch({ type: GET_PRODUCTS_SUCCESS, payload: shuffleArray(res.data.products) })
+            dispatch({ type: TOTAL_PAGES, payload: res.data.totalPages })
         } catch (error) {
             dispatch({ type: GET_PRODUCTS_FAILURE });
         }
@@ -48,7 +50,7 @@ export const getLogin = ({ email, password }, navigate) => {
         }
     }
 }
-export const get_sign_up = (data,navigate) => {
+export const get_sign_up = (data, navigate) => {
     console.log(data);
     return async (dispatch) => {
         try {

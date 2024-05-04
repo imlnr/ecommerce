@@ -243,7 +243,7 @@ import SearchBar from './SearchBar';
 import { Badge } from '@mui/material';
 import { GET_LOGOUT } from '../redux/appReducer/action-types';
 
-const pages = [{ link: "/products", type: 'Products' }, { link: "/shops", type: 'Shops' }, { link: "/blogs", type: 'Blog' }];
+const pages = [{ link: "/products/page/1", type: 'Products' }, { link: "/shops", type: 'Shops' }, { link: "/blogs", type: 'Blog' }];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {

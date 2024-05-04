@@ -27,9 +27,10 @@ const MainRoutes = () => {
                     <Footer />
                 </PrivateRoutes>
             } />
-            <Route path='/products/:id' element={<><SingleProd /><Footer/></>} />
+            <Route path='/products/:id' element={<><SingleProd /><Footer /></>} />
             <Route path='/profile' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
             <Route path='/checkout' element={<Checkout />} />
+            <Route path='/products/page/:id' element={<><Products /><Footer /></>}/>
         </Routes>
     )
 }

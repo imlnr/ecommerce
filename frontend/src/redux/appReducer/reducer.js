@@ -1,4 +1,4 @@
-import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_LOGOUT, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA } from "./action-types";
+import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, CURRENT_PAGE, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_LOGOUT, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES } from "./action-types";
 
 const initialState = {
     products: [],
@@ -8,7 +8,8 @@ const initialState = {
     wishlist: [],
     cart: [],
     isAddToCartLoading: false,
-    user: JSON.parse(localStorage.getItem('user')) || {}
+    user: JSON.parse(localStorage.getItem('user')) || {},
+    totalPages: 1,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -47,6 +48,8 @@ export const reducer = (state = initialState, action) => {
             return { ...state, isLoading: false, cart: action.payload }
         case REMOVE_FROM_CART_FAILURE:
             return { ...state, isLoading: false, isError: true }
+        case TOTAL_PAGES:
+            return { ...state, totalPages: action.payload }
         default:
             return state;
     }

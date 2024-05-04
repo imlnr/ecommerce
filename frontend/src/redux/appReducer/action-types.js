@@ -29,5 +29,9 @@ export const ADD_TO_WISHLIST_SUCCESS = "ADD_TO_WISHLIST_SUCCESS"
 export const ADD_TO_WISHLIST_FAILURE = "ADD_TO_WISHLIST_FAILURE"
 
 
-export const url = 'https://ecommerce-eb1o.onrender.com'
-// export const url = 'http://localhost:4500'
+export const TOTAL_PAGES = "TOTAL_PAGES"
+export const CURRENT_PAGE = "CURRENT_PAGE"
+
+
+// export const url = 'https://ecommerce-eb1o.onrender.com'
+export const url = 'http://localhost:4500'
