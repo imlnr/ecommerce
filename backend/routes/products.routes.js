@@ -184,35 +184,6 @@ const prodRouter = express.Router();
  */
 
 
-// prodRouter.get('/', async (req, res) => {
-//     try {
-//         const { title, category, sortBy, sortOrder } = req.query;
-//         let sortCriteria = {};
-//         let sortOrderValue = 1;
-
-//         if (sortOrder && sortOrder.toLowerCase() === 'desc') {
-//             sortOrderValue = -1;
-//         }
-
-//         if (sortBy === 'price') {
-//             sortCriteria = { price: sortOrderValue };
-//         } else if (sortBy === 'rating') {
-//             sortCriteria = { 'rating.rate': sortOrderValue };
-//         }
-
-//         let query = {};
-
-//         if (category) {
-//             query = { category: { $regex: category, $options: 'i' } };
-//         }
-
-//         const products = await ProductModel.find(query).sort(sortCriteria);
-
-//         res.json(products);
-//     } catch (error) {
-//         res.status(500).json({ message: error.message });
-//     }
-// });
 
 prodRouter.get('/', async (req, res) => {
     try {
