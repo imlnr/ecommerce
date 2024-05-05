@@ -9,12 +9,12 @@ function shuffleArray(array) {
     return array;
 }
 
-export const Get_Products = (id) => {
+export const Get_Products = (page) => {
     // console.log(id);
     return async (dispatch) => {
         dispatch({ type: GET_PRODUCTS_REQUEST })
         try {
-            const res = await axios.get(`${url}/products/`, { params: { page: id } })
+            const res = await axios.get(`${url}/products/`, { params: { page: page } })
             // console.log(res.data);
             dispatch({ type: GET_PRODUCTS_SUCCESS, payload: shuffleArray(res.data.products) })
             dispatch({ type: TOTAL_PAGES, payload: res.data.totalPages })
