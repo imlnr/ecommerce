@@ -11,15 +11,21 @@ import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import { useDispatch } from 'react-redux'
 import { add_toCart } from '../redux/appReducer/action';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProdCard({ prod }) {
     // const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate();
     const [isclick, setisclick] = useState(false);
     const rat = prod.rating.rate;
     // console.log(prod._id);
     const dispatch = useDispatch();
     const handle_cartadd = () => {
         dispatch(add_toCart(prod));
+    }
+
+    const handleSinglePageClick = ()=>{
+        navigate(`/products/${prod._id}`)
     }
     return (
         <Card
@@ -33,11 +39,11 @@ export default function ProdCard({ prod }) {
                 transition: 'transform 0.3s ease',
             }}
         >
-            <CardMedia sx={{ display: "flex", justifyContent: 'center', alignItems: "center", alignSelf: 'center' }}>
+            <CardMedia onClick={handleSinglePageClick} sx={{cursor:'pointer', display: "flex", justifyContent: 'center', alignItems: "center", alignSelf: 'center' }}>
                 <img src={prod.image} alt={prod.title} width={"90%"} height={"200px"} />
             </CardMedia>
             <CardContent sx={{ paddingBottom: "0%" }}>
-                <Typography gutterBottom variant="paragraph" component="div">
+                <Typography onClick={handleSinglePageClick} sx={{cursor:"pointer"}} gutterBottom variant="paragraph" component="div">
                     {prod.title}
                 </Typography>
                 <Typography variant='h6'>$ {prod.price}</Typography>

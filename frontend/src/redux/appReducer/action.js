@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
+import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -10,16 +10,27 @@ function shuffleArray(array) {
 }
 
 export const Get_Products = (page) => {
-    // console.log(id);
     return async (dispatch) => {
         dispatch({ type: GET_PRODUCTS_REQUEST })
         try {
             const res = await axios.get(`${url}/products/`, { params: { page: page } })
-            // console.log(res.data);
             dispatch({ type: GET_PRODUCTS_SUCCESS, payload: shuffleArray(res.data.products) })
             dispatch({ type: TOTAL_PAGES, payload: res.data.totalPages })
         } catch (error) {
             dispatch({ type: GET_PRODUCTS_FAILURE });
+        }
+    }
+}
+export const get_single_prod = (id) => {
+    return async (dispatch) => {
+        dispatch({ type: GET_SINGLE_REQUEST })
+        try {
+            const res = await axios.get(`${url}/products/${id}`);
+            // console.log(res);
+            dispatch({ type: GET_SINGLE_SUCCESS, payload: res.data })
+        } catch (error) {
+            console.log(error);
+            dispatch({ type: GET_SINGLE_FAILURE })
         }
     }
 }
@@ -100,7 +111,7 @@ export const get_cart_items = () => {
                 Authorization: `Bearer ${token}`,
             }
             const response = await axios.get(`${url}/cart/`, { headers });
-            // console.log(response.data.message);
+            console.log(response.data.message);
             if (response && response.data) {
                 dispatch({ type: GET_CART_SUCCESS, payload: response.data })
             }
