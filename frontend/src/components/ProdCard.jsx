@@ -24,7 +24,7 @@ export default function ProdCard({ prod }) {
         dispatch(add_toCart(prod));
     }
 
-    const handleSinglePageClick = ()=>{
+    const handleSinglePageClick = () => {
         dispatch(get_single_prod(prod._id));
         navigate(`/products/${prod._id}`)
     }
@@ -40,11 +40,11 @@ export default function ProdCard({ prod }) {
                 transition: 'transform 0.3s ease',
             }}
         >
-            <CardMedia onClick={handleSinglePageClick} sx={{cursor:'pointer', display: "flex", justifyContent: 'center', alignItems: "center", alignSelf: 'center' }}>
+            <CardMedia onClick={handleSinglePageClick} sx={{ cursor: 'pointer', display: "flex", justifyContent: 'center', alignItems: "center", alignSelf: 'center' }}>
                 <img src={prod.image} alt={prod.title} width={"90%"} height={"200px"} />
             </CardMedia>
             <CardContent sx={{ paddingBottom: "0%" }}>
-                <Typography onClick={handleSinglePageClick} sx={{cursor:"pointer"}} gutterBottom variant="paragraph" component="div">
+                <Typography onClick={handleSinglePageClick} sx={{ cursor: "pointer" }} gutterBottom variant="paragraph" component="div">
                     {prod.title}
                 </Typography>
                 <Typography variant='h6'>$ {prod.price}</Typography>

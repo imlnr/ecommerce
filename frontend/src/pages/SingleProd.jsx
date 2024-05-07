@@ -17,7 +17,7 @@ const SingleProd = () => {
   // console.log(rate, count);
   useEffect(() => {
     dispatch(get_single_prod(id));
-  }, [dispatch,id])
+  }, [dispatch, id])
   return (
     <Box sx={{ minHeight: "calc(100vh - 60px)", display: "flex", alignItems: "center", justifyContent: "center" }}>
       {
