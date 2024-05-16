@@ -149,6 +149,28 @@ cartRouter.post('/', cartnwish, async (req, res) => {
 
 /**
  * @swagger
+ * /cart/deleteall:
+ *   delete:
+ *     summary: Clear all items in the cart for a user
+ *     tags: [Cart]
+ *     responses:
+ *       '200':
+ *         description: All cart items cleared
+ *       '500':
+ *         description: Internal server error
+ */
+
+cartRouter.delete('/deleteall', cartnwish, async (req, res) => {
+    try {
+        await CartModel.deleteMany({ userID: req.body.userID });
+        res.status(200).send({ "message": "All the cart items are cleared" });
+    } catch (error) {
+        res.status(500).send({ "error": error.message });
+    }
+});
+
+/**
+ * @swagger
  * /cart/{id}:
  *   delete:
  *     summary: Remove an item from the cart
@@ -183,6 +205,7 @@ cartRouter.delete('/:id', cartnwish, async (req, res) => {
         res.status(500).send({ "error": error.message })
     }
 })
+
 
 module.exports = {
     cartRouter
