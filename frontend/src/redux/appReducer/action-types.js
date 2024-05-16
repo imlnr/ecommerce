@@ -33,9 +33,14 @@ export const TOTAL_PAGES = "TOTAL_PAGES"
 export const CURRENT_PAGE = "CURRENT_PAGE"
 
 
-export const GET_SINGLE_REQUEST =  "GET_SINGLE_REQUEST"
+export const GET_SINGLE_REQUEST = "GET_SINGLE_REQUEST"
 export const GET_SINGLE_SUCCESS = "GET_SINGLE_SUCCESS"
 export const GET_SINGLE_FAILURE = "GET_SINGLE_FAILURE"
+
+
+export const CLEAR_CART_ITEMS = "CLEAR_CART_ITEMS"
+export const CLEAR_CART_ITEMS_SUCCESS = "CLEAR_CART_ITEMS_SUCCESS"
+export const CLEAR_CART_ITEMS_FAILURE = "CLEAR_CART_ITEMS_FAILURE"
 
 
 export const url = 'https://ecommerce-eb1o.onrender.com'

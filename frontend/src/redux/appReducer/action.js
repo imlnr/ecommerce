@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
+import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, CLEAR_CART_ITEMS, CLEAR_CART_ITEMS_FAILURE, CLEAR_CART_ITEMS_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -139,6 +139,26 @@ export const delete_cart_item = (data, id) => {
         } catch (error) {
             console.log(error);
             dispatch({ type: REMOVE_FROM_CART_FAILURE })
+        }
+    }
+}
+
+export const clear_cart = () => {
+    return async (dispatch) => {
+        dispatch({ type: CLEAR_CART_ITEMS });
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                Authorization: `Bearer ${token}`
+            }
+            const res = await axios.delete(`${url}/cart/deleteall`, { headers });
+            console.log(res);
+            if (res.status == 200) {
+                dispatch({ type: CLEAR_CART_ITEMS_SUCCESS })
+            }
+        } catch (error) {
+            console.log(error);
+            dispatch({ type: CLEAR_CART_ITEMS_FAILURE })
         }
     }
 }

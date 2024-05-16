@@ -1,4 +1,4 @@
-import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_LOGOUT, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES } from "./action-types";
+import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, CLEAR_CART_ITEMS, CLEAR_CART_ITEMS_FAILURE, CLEAR_CART_ITEMS_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_LOGOUT, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES } from "./action-types";
 
 const initialState = {
     products: [],
@@ -56,6 +56,12 @@ export const reducer = (state = initialState, action) => {
         case GET_SINGLE_SUCCESS:
             return { ...state, isLoading: false, singleProduct: action.payload }
         case GET_SINGLE_FAILURE:
+            return { ...state, isLoading: false, isError: true }
+        case CLEAR_CART_ITEMS:
+            return { ...state, isLoading: true, isError: false }
+        case CLEAR_CART_ITEMS_SUCCESS:
+            return { ...state, isLoading: false, cart: [] }
+        case CLEAR_CART_ITEMS_FAILURE:
             return { ...state, isLoading: false, isError: true }
         default:
             return state;
