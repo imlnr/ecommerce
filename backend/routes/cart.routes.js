@@ -105,7 +105,7 @@ const cartRouter = express.Router();
  */
 cartRouter.get('/', cartnwish, async (req, res) => {
     try {
-        const cartData = await CartModel.find({ userID: req.query.userID }).populate('productData');
+        const cartData = await CartModel.find({ userID: req.body.userID }).populate('productData');
         res.status(202).json(cartData);
     } catch (error) {
         res.status(505).send({ "msg": error.message })

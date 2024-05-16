@@ -63,7 +63,6 @@ export default function SearchBar() {
     }, []);
 
     const handleSearchClick = () => {
-        // Toggle the visibility of the section
         setSectionVisible(true);
     };
 
@@ -80,7 +79,7 @@ export default function SearchBar() {
             </Search>
             {isSectionVisible && (
                 // Render your section here
-                <Box sx={{ position: "absolute", top: "40px", color: "black", backgroundColor: "white", paddingX: "2%", paddingY: "1%", minHeight: "300px", minWidth: "500px", borderRadius: "5px", opacity: "0.8" }}>
+                <Box sx={{ position: "absolute", top: "40px", color: "black", backgroundColor: "white", paddingX: "2%", paddingY: "1%", minHeight: "300px", minWidth: "640px", borderRadius: "5px", opacity: "0.8" }}>
                     Your section content goes here
                 </Box>
             )}
