@@ -196,7 +196,7 @@ cartRouter.delete('/:id', cartnwish, async (req, res) => {
         const cart = await CartModel.findOne({ _id: id });
         if (cart.userID === req.body.userID) {
             await CartModel.findByIdAndDelete({ _id: id });
-            res.send({ "message": "the item has been removed from cart" });
+            res.status(200).send({ "message": "the item has been removed from cart" });
         }
         else {
             res.status(403).send({ "message": "you are not authorized to remove this item" });

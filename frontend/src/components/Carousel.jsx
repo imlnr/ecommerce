@@ -89,7 +89,6 @@ const Carousel = () => {
                 sx={{ color: 'white' }}
                 size='large'
                 variant="contained"
-                // color="primary"
                 onClick={nextSlide}
                 style={{
                     position: 'absolute',

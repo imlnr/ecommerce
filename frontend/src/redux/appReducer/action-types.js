@@ -43,5 +43,9 @@ export const CLEAR_CART_ITEMS_SUCCESS = "CLEAR_CART_ITEMS_SUCCESS"
 export const CLEAR_CART_ITEMS_FAILURE = "CLEAR_CART_ITEMS_FAILURE"
 
 
+export const GET_SEARCH_REQUEST = "GET_SEARCH_REQUEST"
+export const GET_SEARCH_SUCCESS = "GET_SEARCH_SUCCESS"
+export const GET_SEARCH_FALURE = "GET_SEARCH_FALURE"
+
 export const url = 'https://ecommerce-eb1o.onrender.com'
 // export const url = 'http://localhost:4500'
