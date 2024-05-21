@@ -120,11 +120,12 @@ export default function SearchBar() {
                 />
             </SearchContainer>
             {isSectionVisible && (
-                <Box sx={{ position: "absolute", top: "40px", color: "black", backgroundColor: "white", paddingX: "1%", paddingY: "1%", minHeight: "300px", minWidth: "500px", borderRadius: "5px", opacity: "0.9" }}>
-                    {products && products.map((ele)=>(
-                        <ResultSearch prod={ele}/>
-                    ))}
-                </Box>
+                products.length != 0 ?
+                    <Box sx={{ display: "flex", flexDirection: "column", gap: "10px", position: "absolute", top: "40px", color: "white", width: "600px", backgroundColor: "primary.main", padding: "1%", borderRadius: "5px", opacity: "0.9" }}>
+                        {products.map((ele) => (
+                            <ResultSearch prod={ele} />
+                        ))}
+                    </Box> : null
             )}
         </Box>
     );

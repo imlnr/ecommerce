@@ -166,7 +166,7 @@ export const clear_cart = () => {
             }
             const res = await axios.delete(`${url}/cart/deleteall`, { headers });
             console.log(res);
-            if (res.status == 200) {
+            if (res.status === 200) {
                 dispatch({ type: CLEAR_CART_ITEMS_SUCCESS })
             }
         } catch (error) {
