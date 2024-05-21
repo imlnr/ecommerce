@@ -121,7 +121,7 @@ export default function SearchBar() {
             </SearchContainer>
             {isSectionVisible && (
                 products.length != 0 ?
-                    <Box sx={{ display: "flex", flexDirection: "column", gap: "10px", position: "absolute", top: "40px", color: "white", width: "600px", backgroundColor: "primary.main", padding: "1%", borderRadius: "5px", opacity: "0.9" }}>
+                    <Box sx={{ display: "flex", flexDirection: "column", gap: "10px", position: "absolute", top: "40px", color: "white", width: "600px", backgroundColor: "primary.main", padding: "1%", borderRadius: "5px", opacity: "0.9",maxHeight:"calc(100vh - 80px)",overflow:"auto" }}>
                         {products.map((ele) => (
                             <ResultSearch prod={ele} />
                         ))}
