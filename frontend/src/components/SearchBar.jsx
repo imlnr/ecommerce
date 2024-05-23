@@ -66,7 +66,7 @@ export default function SearchBar() {
     const [searchQuery, setSearchQuery] = React.useState("");
     const [isSectionVisible, setSectionVisible] = React.useState(false);
     const [debouncedQuery, setDebouncedQuery] = React.useState("");
-    console.log(products)
+    // console.log(products)
 
     const debouncedSetSearchQuery = React.useCallback(
         debounce((query) => {
