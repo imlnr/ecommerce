@@ -123,7 +123,7 @@ const Carousel = () => {
                         Pick up where you left off
                     </Typography>
                     <Box sx={{ backgroundColor: "white", display: "grid", gridTemplateColumns: "repeat(2,1fr)", rowGap: "2%", columnGap: "3%", marginBottom: "3%" }}>
-                        {gridData.map((ele) => (
+                        {gridData2.map((ele) => (
                             <Box key={ele.url} sx={{ display: 'flex', justifyContent: "center", flexDirection: "column", cursor: "pointer" }}>
                                 <img style={{ margin: "0 auto" }} width={"100%"} src={ele.url} alt={ele.text} />
                                 <Typography justifySelf={'end'}>{ele.text}</Typography>
