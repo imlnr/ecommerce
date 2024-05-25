@@ -28,6 +28,7 @@ export const searchProducts = (query) => {
         try {
             const res = await axios.get(`${url}/products`, { params: { title: query, category: query } });
             dispatch({ type: GET_SEARCH_SUCCESS, payload: res.data.products });
+            console.log(res.data.products)
         } catch (error) {
             dispatch({ type: GET_SEARCH_FALURE })
         }
@@ -39,8 +40,8 @@ export const get_single_prod = (id) => {
         dispatch({ type: GET_SINGLE_REQUEST })
         try {
             const res = await axios.get(`${url}/products/${id}`);
-            // console.log(res);
             dispatch({ type: GET_SINGLE_SUCCESS, payload: res.data })
+            console.log(res.data);
         } catch (error) {
             console.log(error);
             dispatch({ type: GET_SINGLE_FAILURE })
