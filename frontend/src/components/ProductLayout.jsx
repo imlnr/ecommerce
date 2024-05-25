@@ -5,7 +5,7 @@ import ProdCarousel from './ProdCarousel'
 import { url } from '../redux/appReducer/action-types'
 import axios from 'axios'
 
-const ProductLayout = ({ prod }) => {
+const ProductLayout = ({ prod ,dealname}) => {
     const carouselData = [
         {
             "_id": "662549d1dfeeb9e76c3002e7",
@@ -134,7 +134,7 @@ const ProductLayout = ({ prod }) => {
     }, [])
     return (
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '1%', minHeight: '250px' }}>
-            {phoneData === null ? <Loading /> : <ProdCarousel deals="Smart phones" carouselData={phoneData} />}
+            {phoneData === null ? <Loading /> : <ProdCarousel deals={dealname} carouselData={phoneData} />}
         </Box>
     )
 }

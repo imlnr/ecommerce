@@ -43,7 +43,7 @@ const ProdCarousel = ({ deals, carouselData }) => {
 
     return (
         <Box width={{ xs: '100%', sm: '88%' }} sx={{ backgroundColor: 'white', padding: '1%' }}>
-            <Typography variant='h5' fontWeight={600}>
+            <Typography variant='h5' marginBottom={"10px"} fontWeight={600}>
                 {deals}
             </Typography>
             <Box sx={{ position: 'relative' }}>

@@ -131,9 +131,9 @@ const Home = () => {
       <Box marginBottom="20px" minHeight="100vh">
         <Carousel />
       </Box>
-      <ProductLayout prod={'default'}/>
-      <ProductLayout prod={'tablet'} />
-      <ProductLayout prod={'phone'} />
+      <ProductLayout dealname={"Today's Deal"} prod={'default'}/>
+      <ProductLayout dealname={"Tablets ..."} prod={'tablet'} />
+      <ProductLayout dealname={"Smart Phones"} prod={'phone'} />
     </Box>
   );
 };
