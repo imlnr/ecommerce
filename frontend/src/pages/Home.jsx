@@ -15,7 +15,7 @@ const Home = () => {
       <Box marginBottom={"20px"} minHeight={'100vh'}>
         <Carousel />
       </Box>
-      <ProdCarousel/>
+      <ProdCarousel deals={"Today's Deals"}/>
     </Box>
 
   )
