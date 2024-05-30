@@ -12,6 +12,7 @@ import Profile from '../pages/Profile'
 import SingleProd from '../pages/SingleProd'
 import Checkout from '../pages/Checkout'
 import Footer from '../components/Footer'
+import Wishlist from '../pages/Wishlist'
 const MainRoutes = () => {
     return (
         <Routes>
@@ -27,10 +28,11 @@ const MainRoutes = () => {
                     <Footer />
                 </PrivateRoutes>
             } />
+            <Route path='/wishlist' element={<><PrivateRoutes><Wishlist /> <Footer /></PrivateRoutes> </>} />
             <Route path='/products/:id' element={<><SingleProd /><Footer /></>} />
             <Route path='/profile' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
             <Route path='/checkout' element={<Checkout />} />
-            <Route path='/products/page/:id' element={<><Products /><Footer /></>}/>
+            <Route path='/products/page/:id' element={<><Products /><Footer /></>} />
         </Routes>
     )
 }
