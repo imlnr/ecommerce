@@ -13,7 +13,7 @@ const Home = () => {
     dispatch(get_cart_items());
     // get_Carousel_products('phone');
   }, [dispatch]);
-  const allDeals = [{ dealname: "Today's Deal", prod: "default" }, { dealname: "Tablets", prod: "tablet" }, { dealname: "Shoes", prod: "shoes" }]
+  const allDeals = [{ dealname: "Today's Deal", prod: "default" }, { dealname: "Tablets", prod: "tablet" }, { dealname: "Shoes", prod: "shoes" },{ dealname: "Smart phones", prod: "phone" }]
 
   return (
     <Box sx={{ backgroundColor: '#e5e5e5' }}>
