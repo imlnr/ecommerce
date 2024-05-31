@@ -34,7 +34,7 @@ export default function ResponsiveDialog() {
             <Dialog
                 fullScreen={fullScreen}
                 open={open}
-                onClose={handleClose}
+                onClose={() => setOpen(false)}
                 aria-labelledby="responsive-dialog-title"
             >
                 <DialogTitle id="responsive-dialog-title">
@@ -46,10 +46,10 @@ export default function ResponsiveDialog() {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={() => setOpen(false)}>
+                    <Button variant='contained' autoFocus onClick={() => setOpen(false)}>
                         Disagree
                     </Button>
-                    <Button onClick={handleClose} autoFocus>
+                    <Button color='error' variant='contained' onClick={handleClose} autoFocus>
                         Agree
                     </Button>
                 </DialogActions>

@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import { useDispatch } from 'react-redux'
-import { add_toCart, get_single_prod } from '../redux/appReducer/action';
+import { add_toCart, add_toWishlist, get_single_prod } from '../redux/appReducer/action';
 import { useNavigate } from 'react-router-dom';
 
 export default function ProdCard({ prod }) {
@@ -27,6 +27,10 @@ export default function ProdCard({ prod }) {
     const handleSinglePageClick = () => {
         dispatch(get_single_prod(prod._id));
         navigate(`/products/${prod._id}`)
+    }
+    const handleWishlist = ()=>{
+        dispatch(add_toWishlist(prod))
+        setisclick(!isclick);
     }
     return (
         <Card
@@ -60,7 +64,7 @@ export default function ProdCard({ prod }) {
                 </Typography>
             </CardContent>
             <CardActions sx={{ display: "flex", alignItems: 'center', justifyContent: 'space-between' }}>
-                <IconButton onClick={() => setisclick(!isclick)} size='medium'>
+                <IconButton onClick={handleWishlist} size='medium'>
                     <FavoriteIcon sx={isclick ? { fill: "red" } : {}} />
                 </IconButton>
                 {/* <Button variant='outlined' size="small">Wishlist</Button> */}

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, CLEAR_CART_ITEMS, CLEAR_CART_ITEMS_FAILURE, CLEAR_CART_ITEMS_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SEARCH_FALURE, GET_SEARCH_REQUEST, GET_SEARCH_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
+import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, CLEAR_CART_ITEMS, CLEAR_CART_ITEMS_FAILURE, CLEAR_CART_ITEMS_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SEARCH_FALURE, GET_SEARCH_REQUEST, GET_SEARCH_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, GET_WISHLIST_FAILURE, GET_WISHLIST_ITEMS, GET_WISHLIST_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -104,7 +104,8 @@ export const add_toCart = (prod) => {
             }
             const response = await axios.post(`${url}/cart/`, { productData: prod._id }, { headers });
             if (response && response.data) {
-                dispatch({ type: ADD_TO_CART_SUCCESS, payload: { userId: 889989898232838, productData: prod, added_at: Date.now() } })
+                // userId: 889989898232838,
+                dispatch({ type: ADD_TO_CART_SUCCESS, payload: { productData: prod, added_at: Date.now() } })
             }
             console.log(response.data.message);
         } catch (error) {
@@ -114,6 +115,49 @@ export const add_toCart = (prod) => {
     }
 }
 
+export const get_wishlist_items = () => {
+    console.log("fetching your wishlist");
+    return async (dispatch) => {
+        try {
+            console.log('working');
+            dispatch({ type: GET_WISHLIST_ITEMS })
+            const token = localStorage.getItem('token');
+            const headers = {
+                Authorization: `Bearer ${token}`,
+            }
+            const response = await axios.get(`${url}/wishlist/`, { headers });
+            console.log(response.data);
+            if (response && response.data) {
+                dispatch({ type: GET_WISHLIST_SUCCESS, payload: response.data })
+            }
+        } catch (error) {
+            dispatch({ type: GET_WISHLIST_FAILURE })
+            console.log(error);
+        }
+    }
+}
+
+export const add_toWishlist = (prod) => {
+    return async (dispatch) => {
+        dispatch({ type: GET_WISHLIST_ITEMS })
+        console.log("clicking");
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                Authorization: `Bearer ${token}`,
+            }
+            const response = await axios.post(`${url}/wishlist/`, { productData: prod._id }, { headers });
+            if (response && response.data) {
+                // userId: 889989898232838,
+                dispatch({ type: GET_WISHLIST_SUCCESS, payload: { productData: prod, added_at: Date.now() } })
+            }
+            console.log(response.data.message);
+        } catch (error) {
+            console.log(error);
+            dispatch({ type: GET_WISHLIST_FAILURE })
+        }
+    }
+}
 
 export const get_cart_items = () => {
     console.log("fetching your carts");

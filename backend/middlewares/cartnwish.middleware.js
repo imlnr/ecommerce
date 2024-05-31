@@ -9,7 +9,7 @@ const cartnwish = (req, res, next) => {
             next()
         }
         else {
-            res.status(401).send({ "message": "you ar not authorized!" })
+            res.status(401).send({ "message": "you are not authorized!" })
         }
     }
     else {

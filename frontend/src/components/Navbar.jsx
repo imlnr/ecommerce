@@ -25,7 +25,7 @@ import { Badge } from '@mui/material';
 import { GET_LOGOUT } from '../redux/appReducer/action-types';
 
 const pages = [{ link: "/products/page/1", type: 'Products' }, { link: "/shops", type: 'Shops' }, { link: "/blogs", type: 'Blog' }];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'wishlist', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
     const logged = useSelector((state) => state.isLoggedIn);
@@ -61,6 +61,9 @@ function Navbar() {
         }
         if (item === 'Profile') {
             navigate('/profile');
+        }
+        if (item === 'wishlist') {
+            navigate('/wishlist')
         }
         handleCloseUserMenu();
         setUserDrawerOpen(false);
