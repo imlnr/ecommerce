@@ -18,11 +18,15 @@ const Wishlist = () => {
     }, [dispatch]);
 
     return (
-        <Box sx={loading ? { display: 'flex', alignItems: "center", justifyContent: "center", minHeight: "calc(100vh - 70px)" } : { display: 'grid', border: "1px solid", gridTemplateColumns: { lg: "repeat(5, 1fr)", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", xs: "repeat(2, 1fr)" }, columnGap: "1%", rowGap: "1%", paddingX: "3%", paddingY: "2%", minHeight: "calc(100vh - 70px)" }}>
-            {loading ? <Loading /> : (Array.isArray(wish) && wish.map((e) => (
-                <WishCard key={e._id} prod={e} />
-            )))}
-        </Box>
+        <>
+            {loading && <Box sx={{ position: 'absolute', top: 'calc(50% - 70px)', left: "calc(50% - 50px)", zIndex: "1" }}><Loading /></Box>}
+
+            <Box sx={{ position: "relative", display: 'grid', border: "1px solid", gridTemplateColumns: { lg: "repeat(5, 1fr)", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", xs: "repeat(2, 1fr)" }, columnGap: "1%", rowGap: "1%", paddingX: "3%", paddingY: "2%", minHeight: "calc(100vh - 70px)", backgroundColor: "#f8f9fa", filter: loading ? "blur(5px)" : 'none' }}>
+                {(Array.isArray(wish) && wish.map((e) => (
+                    <WishCard key={e._id} prod={e} />
+                )))}
+            </Box>
+        </>
     );
 };
 
