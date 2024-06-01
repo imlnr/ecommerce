@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, CLEAR_CART_ITEMS, CLEAR_CART_ITEMS_FAILURE, CLEAR_CART_ITEMS_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SEARCH_FALURE, GET_SEARCH_REQUEST, GET_SEARCH_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, GET_WISHLIST_FAILURE, GET_WISHLIST_ITEMS, GET_WISHLIST_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
+import { ADD_TO_CART_FAILURE, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, CLEAR_CART_ITEMS, CLEAR_CART_ITEMS_FAILURE, CLEAR_CART_ITEMS_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_LOGIN_FAILURE, GET_LOGIN_REQUEST, GET_LOGIN_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_SEARCH_FALURE, GET_SEARCH_REQUEST, GET_SEARCH_SUCCESS, GET_SINGLE_FAILURE, GET_SINGLE_REQUEST, GET_SINGLE_SUCCESS, GET_WISHLIST_FAILURE, GET_WISHLIST_ITEMS, GET_WISHLIST_SUCCESS, REMOVE_FROM_CART_FAILURE, REMOVE_FROM_CART_REQUEST, REMOVE_FROM_CART_SUCCESS, REMOVE_FROM_WISHLST, SET_USER_DATA, TOTAL_PAGES, url } from './action-types';
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -139,7 +139,7 @@ export const get_wishlist_items = () => {
 
 export const add_toWishlist = (prod) => {
     return async (dispatch) => {
-        dispatch({ type: GET_WISHLIST_ITEMS })
+        dispatch({ type: ADD_TO_CART_REQUEST })
         console.log("clicking");
         try {
             const token = localStorage.getItem('token');
@@ -154,7 +154,7 @@ export const add_toWishlist = (prod) => {
             console.log(response.data.message);
         } catch (error) {
             console.log(error);
-            dispatch({ type: GET_WISHLIST_FAILURE })
+            dispatch({ type: ADD_TO_CART_FAILURE })
         }
     }
 }
@@ -193,6 +193,28 @@ export const delete_cart_item = (data, id) => {
             console.log(res);
             if (res.status === 200) {
                 dispatch({ type: REMOVE_FROM_CART_SUCCESS, payload: data })
+            }
+        } catch (error) {
+            console.log(error);
+            dispatch({ type: REMOVE_FROM_CART_FAILURE })
+        }
+    }
+}
+
+export const delete_wishlist_item = (data, id) => {
+    // console.log(data);
+    return async (dispatch) => {
+        dispatch({ type: REMOVE_FROM_CART_REQUEST })
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                Authorization: `Bearer ${token}`,
+            }
+            const res = await axios.delete(`${url}/wishlist/${id}`, { headers })
+            console.log(res);
+            if (res.status === 200) {
+                console.log(data);
+                dispatch({ type: REMOVE_FROM_WISHLST, payload: data })
             }
         } catch (error) {
             console.log(error);

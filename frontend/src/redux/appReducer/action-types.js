@@ -51,6 +51,7 @@ export const GET_WISHLIST_ITEMS = "GET_WISHLIST_ITEMS";
 export const GET_WISHLIST_SUCCESS = "GET_WISHLIST_SUCCESS";
 export const GET_WISHLIST_FAILURE = "GET_WISHLIST_FAILURE";
 export const ADD_TO_WISHLIST = "ADD_TO_WISHLIST";
+export const REMOVE_FROM_WISHLST = "REMOVE_FROM_WISHLST";
 
 export const url = 'https://ecommerce-eb1o.onrender.com'
 // export const url = 'http://localhost:4500'
