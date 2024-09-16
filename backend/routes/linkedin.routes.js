@@ -58,7 +58,7 @@ const linkedinRouter = express.Router();
  */
 
 linkedinRouter.post('/token', async (req, res) => {
-    const { code } = req.body;
+    const { code, uri } = req.body;
     try {
         const response = await axios.post(
             `https://www.linkedin.com/oauth/v2/accessToken`,
@@ -67,7 +67,7 @@ linkedinRouter.post('/token', async (req, res) => {
                 params: {
                     grant_type: 'authorization_code',
                     code: code,
-                    redirect_uri: 'http://localhost:5173/linkedin',
+                    redirect_uri: uri,
                     client_id: process.env.LINKEDIN_CLIENT_ID,
                     client_secret: process.env.LINKEDIN_CLIENT_SECRET,
                 },
