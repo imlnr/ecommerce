@@ -8,6 +8,7 @@ const { cartRouter } = require("./routes/cart.routes");
 const { wishRouter } = require("./routes/wish.routes");
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const { linkedinRouter } = require("./routes/linkedin.routes");
 const PORT = process.env.PORT || 4500;
 const app = express();
 
@@ -18,6 +19,7 @@ app.use('/user', userRouter);
 app.use('/products', prodRouter);
 app.use('/cart', cartRouter);
 app.use('/wishlist', wishRouter);
+app.use('/linkedin', linkedinRouter);
 
 
 const options = {
@@ -47,9 +49,9 @@ app.use("/apidocs", swaggerUi.serve, swaggerUi.setup(openapiSpecification))
 app.listen(PORT, async () => {
     try {
         await connection
-        console.log("Connected to db...");
-        console.log("your server is running at http://localhost:4500");
+        console.log("Connected to db...")
+        console.log("your server is running at http://localhost:4500")
     } catch (error) {
-
+        console.log(error)
     }
 })
